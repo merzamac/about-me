@@ -64,6 +64,7 @@ header.scrolled{box-shadow:0 1px 8px rgba(32,33,36,.12)}
 .avatar{position:relative;width:84px;height:84px;border-radius:50%;flex:none}
 .avatar::before{content:"";position:absolute;inset:-7px;border-radius:50%;background:conic-gradient(var(--blue),var(--red),var(--yellow),var(--green),var(--blue));animation:spin 9s linear infinite}
 .avatar span{position:absolute;inset:0;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:34px;font-weight:700}
+.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .avatar.lg{width:132px;height:132px}
 .avatar.lg span{font-size:52px}
 @keyframes spin{to{transform:rotate(360deg)}}
