@@ -1,1124 +1,628 @@
 <!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Moisés Merza — Software Developer | Automation &amp; Data Analytics</title>
+<meta content="Desarrollador de Software: Backend (Python, NestJS), personalización de ERP Odoo 14 y 18, automatización RPA/ETL y arquitecturas escalables. +300.000 registros procesados con Polars." name="description"/>
+<meta content="Moisés Merza — Software Developer | Automation Specialist | Data Analytics &amp; SQL" property="og:title"/>
+<meta content="Portafolio profesional: Backend (Python, NestJS), ERP Odoo 14/18, automatización RPA/ETL y arquitecturas escalables." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://merzamac.github.io/" property="og:url"/>
+<meta content="#ffffff" name="theme-color"/>
+<link href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='24'%20fill='%234285f4'/%3E%3Ctext%20x='50'%20y='74'%20font-size='62'%20font-family='Arial'%20font-weight='bold'%20text-anchor='middle'%20fill='%23ffffff'%3EM%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+<style>
+:root{
+  --blue:#4285f4; --red:#ea4335; --yellow:#fbbc04; --green:#34a853;
+  --ink:#202124; --gray:#5f6368; --line:#dadce0; --bg:#ffffff; --surface:#f8f9fa;
+  --blue-soft:#e8f0fe; --red-soft:#fce8e6; --green-soft:#e6f4ea; --yellow-soft:#fef7e0;
+  --radius:12px; --max:1080px; --accent:var(--blue);
+  --shadow:0 1px 3px rgba(32,33,36,.1), 0 4px 12px rgba(32,33,36,.08);
+  --shadow-lift:0 12px 28px rgba(32,33,36,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Roboto,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--blue)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.mono{font-family:'Roboto Mono',monospace}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:-5px}
 
-<html class="" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Moisés Merza — Software Developer | Backend, Odoo &amp; Automation</title><meta content="Portafolio de Moisés Merza: desarrollador backend/fullstack (Python, NestJS), especialista en ERP Odoo 14/18, automatización RPA/ETL y arquitectura de software." name="description"/><meta content="Moisés Merza — Software Developer | Backend &amp; Fullstack | Odoo &amp; Automation" property="og:title"/><meta content="Portafolio profesional: Backend (NestJS, FastAPI, Django), Odoo 14/18, RPA/ETL con Python y arquitecturas escalables." property="og:description"/><meta content="website" property="og:type"/><meta content="https://merzamac.github.io/" property="og:url"/><meta content="#0b1326" name="theme-color"/><link href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='20'%20fill='%230b1326'/%3E%3Ctext%20x='50'%20y='70'%20font-size='55'%20text-anchor='middle'%20font-family='monospace'%20fill='%234cd7f6'%3E%3E_%3C/text%3E%3C/svg%3E" rel="icon"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+/* ---------- progress + header ---------- */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:transparent}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--blue),var(--green));transform:scaleX(0);transform-origin:left}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header.scrolled{box-shadow:0 1px 8px rgba(32,33,36,.12)}
+.bar{display:flex;align-items:center;gap:14px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:500;font-size:15px;white-space:nowrap}
+.brand .logo{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px;transition:transform .3s}
+.brand:hover .logo{transform:rotate(-8deg) scale(1.06)}
+.mainnav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.mainnav::-webkit-scrollbar{display:none}
+.mainnav a{position:relative;padding:8px 12px;color:var(--gray);text-decoration:none;font-size:14px;font-weight:500;white-space:nowrap;transition:color .2s}
+.mainnav a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:3px;border-radius:3px;background:var(--blue);transform:scaleX(0);transition:transform .25s ease}
+.mainnav a:hover{color:var(--ink)}
+.mainnav a:hover::after{transform:scaleX(.4);background:var(--line)}
+.mainnav a.active{color:var(--blue)}
+.mainnav a.active::after{transform:scaleX(1)}
+.actions{display:flex;align-items:center;gap:4px}
+.icon-btn{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--gray);text-decoration:none;transition:background .2s,color .2s}
+.icon-btn:hover{background:var(--surface);color:var(--blue)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;border:1px solid transparent;font:inherit;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:box-shadow .2s,transform .2s,background .2s}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:#3b78e7;box-shadow:0 4px 14px rgba(66,133,244,.4);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--gray);border-color:var(--line)}
+.btn-ghost:hover{background:var(--surface);color:var(--ink)}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);transform:scale(0);animation:ripple .55s ease-out forwards;pointer-events:none}
+.btn-ghost .ripple{background:rgba(66,133,244,.25)}
+@keyframes ripple{to{transform:scale(2.4);opacity:0}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding:72px 0 48px}
+.blobs{position:absolute;inset:0;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(72px);opacity:.28;animation:float 14s ease-in-out infinite alternate}
+.blob.b1{width:360px;height:360px;background:var(--blue);top:-120px;right:-80px}
+.blob.b2{width:280px;height:280px;background:var(--yellow);bottom:-100px;left:-60px;animation-delay:-5s;opacity:.22}
+.blob.b3{width:220px;height:220px;background:var(--green);top:120px;left:38%;animation-delay:-9s;opacity:.16}
+@keyframes float{from{transform:translateY(-14px) scale(1)}to{transform:translateY(18px) scale(1.07)}}
+.hero-grid{position:relative;display:flex;flex-direction:column;gap:26px}
+.hero-top{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.avatar{position:relative;width:84px;height:84px;border-radius:50%;flex:none}
+.avatar::before{content:"";position:absolute;inset:-7px;border-radius:50%;background:conic-gradient(var(--blue),var(--red),var(--yellow),var(--green),var(--blue));animation:spin 9s linear infinite}
+.avatar span{position:absolute;inset:0;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:34px;font-weight:700}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:13px;color:var(--gray)}
+h1{margin:0;font-size:clamp(34px,6vw,54px);letter-spacing:-.02em;line-height:1.12}
+.tagline{color:var(--blue);font-size:clamp(16px,2.6vw,20px);font-weight:500;min-height:1.6em;display:inline-block}
+.tagline.typing::after{content:"";display:inline-block;width:2px;height:1.05em;background:var(--blue);margin-left:3px;vertical-align:-3px;animation:blink .8s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.lead{margin:0;max-width:760px;color:var(--gray);font-size:16.5px}
+.contact-row{display:flex;flex-wrap:wrap;gap:10px}
+.contact-row a{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:10px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:14px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.contact-row a:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-2px)}
+.contact-row a .material-symbols-outlined{font-size:18px;color:var(--blue)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:8px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;transition:transform .25s,box-shadow .25s}
+.stat:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.stat b{display:block;font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.2;font-family:'Roboto Mono',monospace}
+.stat:nth-child(1) b{color:var(--blue)}
+.stat:nth-child(2) b{color:var(--green)}
+.stat:nth-child(3) b{color:var(--red)}
+.stat:nth-child(4) b{color:var(--ink)}
+.stat span{font-size:13.5px;color:var(--gray)}
+
+/* ---------- sections ---------- */
+section{scroll-margin-top:72px}
+.sec{padding:56px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:26px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.kicker::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--accent)}
+h2{margin:6px 0 0;font-size:clamp(26px,4vw,34px);letter-spacing:-.015em}
+.sec-head p{margin:0;max-width:420px;color:var(--gray);font-size:14.5px}
+#perfil{--accent:var(--blue)}
+#experiencia{--accent:var(--green)}
+#proyectos{--accent:var(--red)}
+#habilidades{--accent:var(--blue)}
+#educacion{--accent:var(--green)}
+#contacto{--accent:var(--red)}
+
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+.profile-text{font-size:17px;color:var(--gray);margin:0;max-width:920px}
+.profile-text strong{color:var(--ink);font-weight:500}
+
+/* ---------- experience ---------- */
+.jobs{display:flex;flex-direction:column;gap:18px}
+.job{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--radius);padding:22px 24px;transition:transform .25s,box-shadow .25s}
+.job:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.job-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.job h3{margin:0;font-size:18.5px}
+.job .company{color:var(--accent);font-weight:500;font-size:15px}
+.job .dates{font-family:'Roboto Mono',monospace;font-size:12.5px;color:var(--gray);background:var(--surface);border:1px solid var(--line);padding:4px 12px;border-radius:999px;white-space:nowrap}
+.job ul{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.job li{position:relative;padding-left:26px;color:var(--gray);font-size:15px}
+.job li::before{content:"arrow_forward";font-family:'Material Symbols Outlined';position:absolute;left:0;top:1px;font-size:16px;color:var(--accent)}
+
+/* ---------- projects ---------- */
+.grid{display:grid;gap:16px}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.project{display:flex;flex-direction:column;gap:12px}
+.project-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.stack{font-family:'Roboto Mono',monospace;font-size:12px;padding:4px 12px;border-radius:999px;font-weight:500}
+.s-blue{background:var(--blue-soft);color:#1a56c4}
+.s-red{background:var(--red-soft);color:#c5221f}
+.s-yellow{background:var(--yellow-soft);color:#8a6100}
+.s-green{background:var(--green-soft);color:#137333}
+.project-top .material-symbols-outlined{color:var(--line);font-size:28px;transition:color .25s}
+.project:hover .project-top .material-symbols-outlined{color:var(--accent)}
+.project h3{margin:0;font-size:17.5px;line-height:1.35}
+.project p{margin:0;color:var(--gray);font-size:14.5px;flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:12.5px;padding:4px 11px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--gray)}
+.project .links{display:flex;gap:10px;margin-top:4px}
+.project .links a{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500;text-decoration:none;color:var(--blue);padding:7px 14px;border-radius:999px;background:var(--blue-soft);transition:background .2s,transform .2s}
+.project .links a:hover{background:#d7e6fd;transform:translateX(3px)}
+.project .links .material-symbols-outlined{font-size:17px}
+
+/* ---------- skills ---------- */
+.skill h3{margin:0 0 12px;font-size:16px;display:flex;align-items:center;gap:9px}
+.skill h3 .material-symbols-outlined{font-size:20px;color:var(--accent)}
+.skill p{margin:0;color:var(--gray);font-size:14.5px;flex:1}
+
+/* ---------- education ---------- */
+.edu h3{margin:0 0 4px;font-size:16.5px}
+.edu .where{color:var(--accent);font-weight:500;font-size:14.5px;margin:0 0 8px}
+.edu p.detail{margin:0;color:var(--gray);font-size:14.5px}
+.edu .badge{display:inline-block;font-family:'Roboto Mono',monospace;font-size:11.5px;color:var(--gray);background:var(--surface);border:1px solid var(--line);padding:3px 10px;border-radius:999px;margin-bottom:10px}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.ccard{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.ccard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift);border-color:transparent}
+.ccard .material-symbols-outlined{font-size:26px;color:var(--blue)}
+.ccard b{font-size:15px}
+.ccard span{color:var(--gray);font-size:14px;word-break:break-all}
+
+/* ---------- footer ---------- */
+footer{background:var(--surface);border-top:1px solid var(--line);padding:28px 0;margin-top:24px}
+.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center;font-size:13.5px;color:var(--gray)}
+.foot .brand-dot{display:inline-flex;align-items:center;gap:8px}
+.foot .brand-dot::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue)}
+.foot a{color:var(--gray);text-decoration:none;margin-left:14px}
+.foot a:hover{color:var(--blue)}
+
+/* ---------- reveal ---------- */
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.js .reveal.in{opacity:1;transform:none}
+.grid .reveal.in:nth-child(2),.stats .reveal.in:nth-child(2){transition-delay:.07s}
+.grid .reveal.in:nth-child(3),.stats .reveal.in:nth-child(3){transition-delay:.14s}
+.grid .reveal.in:nth-child(4),.stats .reveal.in:nth-child(4){transition-delay:.21s}
+.grid .reveal.in:nth-child(5){transition-delay:.28s}
+.grid .reveal.in:nth-child(6){transition-delay:.35s}
+.grid .reveal.in:nth-child(7){transition-delay:.42s}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .mainnav{order:3;width:100%;margin-left:0;padding-bottom:4px}
+  .bar{height:auto;padding-top:10px;flex-wrap:wrap}
+  .actions{margin-left:auto}
+  .hero{padding-top:36px}
+}
+
+/* ---------- print (CV ATS) ---------- */
 @media print{
-html,body{background:#fff!important;}
-*{color:#000!important;background:transparent!important;box-shadow:none!important;border-color:#bbb!important;}
-header,#filter-tabs,.sticky,.fixed,form,footer nav{display:none!important;}
-main{padding-top:0!important;background:#fff!important;}
-.portfolio-section{display:block!important;overflow:visible!important;}
-section{break-inside:avoid;page-break-inside:avoid;border:1px solid #ddd!important;padding:12px!important;margin-bottom:12px!important;}
-a[href^="http"]::after,a[href^="mailto"]::after,a[href^="tel"]::after{content:"";}
-@page{margin:12mm;}
-}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#4cd7f6","on-secondary":"#003824","surface-bright":"#31394d","on-secondary-fixed-variant":"#005236","inverse-primary":"#00687a","surface-variant":"#2d3449","tertiary":"#d0bcff","surface-dim":"#0b1326","primary-container":"#06b6d4","primary-fixed-dim":"#4cd7f6","on-tertiary-fixed":"#23005c","on-surface-variant":"#bcc9cd","on-tertiary":"#3c0091","surface-container":"#171f33","on-primary-container":"#00424f","tertiary-container":"#b395ff","on-primary-fixed":"#001f26","on-tertiary-fixed-variant":"#5516be","on-background":"#dae2fd","background":"#0b1326","outline-variant":"#3d494c","inverse-surface":"#dae2fd","error":"#ffb4ab","inverse-on-surface":"#283044","on-surface":"#dae2fd","surface-tint":"#4cd7f6","secondary-fixed-dim":"#4edea3","surface":"#0b1326","surface-container-high":"#222a3d","surface-container-highest":"#2d3449","on-error-container":"#ffdad6","on-tertiary-container":"#4900ae","on-primary-fixed-variant":"#004e5c","on-secondary-container":"#00311f","secondary":"#4edea3","secondary-fixed":"#6ffbbe","primary-fixed":"#acedff","surface-container-low":"#131b2e","secondary-container":"#00a572","surface-container-lowest":"#060e20","on-primary":"#003640","tertiary-fixed":"#e9ddff","on-secondary-fixed":"#002113","outline":"#869397","on-error":"#690005","error-container":"#93000a","tertiary-fixed-dim":"#d0bcff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xl":"2.5rem","space-sm":"0.5rem","margin-mobile":"1rem","margin":"2rem","space-xs":"0.25rem","gutter-mobile":"1rem","space-2xl":"4rem","space-lg":"1.5rem","gutter":"1.5rem","space-md":"1rem"},fontFamily:{"code-inline":["JetBrains Mono"],"headline-lg-mobile":["Inter"],"headline-lg":["Inter"],"label-code":["JetBrains Mono"],"body-sm":["Inter"],"display-mobile":["Inter"],"body-lg":["Inter"],"display":["Inter"],"headline-sm":["Inter"],"stat-metric":["JetBrains Mono"],"headline-md":["Inter"],"body-md":["Inter"]},fontSize:{"code-inline":["0.875rem",{"lineHeight":"1.4","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-lg-mobile":["1.75rem",{"lineHeight":"1.25","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-lg":["2.25rem",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"700"}],"label-code":["0.75rem",{"lineHeight":"1.3","letterSpacing":"0.04em","fontWeight":"500"}],"body-sm":["0.8125rem",{"lineHeight":"1.5","letterSpacing":"0","fontWeight":"400"}],"display-mobile":["2.25rem",{"lineHeight":"1.15","letterSpacing":"-0.025em","fontWeight":"800"}],"body-lg":["1.125rem",{"lineHeight":"1.6","letterSpacing":"-0.005em","fontWeight":"400"}],"display":["3.5rem",{"lineHeight":"1.1","letterSpacing":"-0.03em","fontWeight":"800"}],"headline-sm":["1.125rem",{"lineHeight":"1.4","letterSpacing":"-0.01em","fontWeight":"600"}],"stat-metric":["2rem",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["1.5rem",{"lineHeight":"1.3","letterSpacing":"-0.015em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.6","letterSpacing":"0","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 max-w-[1200px] mx-auto px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs font-code-inline text-code-inline text-primary"><span class="material-symbols-outlined text-[20px] text-primary">terminal</span><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Moisés Merza</span></div><span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-code text-label-code">dev@backend:~#</span></div><nav class="hidden xl:flex items-center gap-space-sm" data-active-classes="bg-surface-container-high text-primary font-code-inline text-code-inline rounded-lg px-3 py-1.5"><a class="font-code-inline text-code-inline text-on-surface-variant hover:text-on-surface transition-colors px-2 py-1" data-path="sobre-mi" href="#">Sobre mí</a><a class="font-code-inline text-code-inline text-on-surface-variant hover:text-on-surface transition-colors px-2 py-1" data-path="experiencia" href="#">Experiencia</a><a class="font-code-inline text-code-inline text-on-surface-variant hover:text-on-surface transition-colors px-2 py-1" data-path="proyectos" href="#">Proyectos</a><a class="font-code-inline text-code-inline text-on-surface-variant hover:text-on-surface transition-colors px-2 py-1" data-path="habilidades" href="#">Habilidades</a><a class="font-code-inline text-code-inline text-on-surface-variant hover:text-on-surface transition-colors px-2 py-1" data-path="educacion" href="#">Educación</a><a class="font-code-inline text-code-inline text-on-surface-variant hover:text-on-surface transition-colors px-2 py-1" data-path="contacto" href="#">Contacto</a></nav><div class="flex items-center gap-space-xs"><a aria-label="Repositorio de código y commits" class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="https://github.com/merzamac" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[20px]">code</span></a><a aria-label="Perfil profesional y red técnica" class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" href="https://linkedin.com/in/merzamac" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[20px]">share</span></a><button class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high hover:text-primary transition-all font-code-inline text-code-inline" onclick="window.print()" type="button"><span class="material-symbols-outlined text-[18px]">print</span><span>CV</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-[calc(100vh-8rem)]"><div class="flex flex-col w-full">
-<!-- Interactive View Switcher / Quick Action Bar -->
-<div class="sticky top-16 z-40 w-full bg-surface-container-lowest/90 backdrop-blur-md shadow-sm">
-<div class="max-w-[1200px] mx-auto px-gutter py-space-sm flex flex-wrap items-center justify-between gap-space-sm">
-<!-- Filter Segmented Tabs -->
-<nav aria-label="Filtro de secciones" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar p-1 rounded-xl bg-surface-container-low" id="filter-tabs">
-<button class="tab-trigger px-3 py-1.5 rounded-lg text-primary bg-surface-container-high font-code-inline text-code-inline flex items-center gap-1.5 transition-all" data-filter="all">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-<span>Todo</span>
-</button>
-<button class="tab-trigger px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-code-inline text-code-inline flex items-center gap-1.5 transition-all" data-filter="experiencia">
-<span>Experiencia</span>
-</button>
-<button class="tab-trigger px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-code-inline text-code-inline flex items-center gap-1.5 transition-all" data-filter="proyectos">
-<span>Proyectos &amp; APIs</span>
-</button>
-<button class="tab-trigger px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-code-inline text-code-inline flex items-center gap-1.5 transition-all" data-filter="odoo-rpa">
-<span>Odoo &amp; RPA</span>
-</button>
-<button class="tab-trigger px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-code-inline text-code-inline flex items-center gap-1.5 transition-all" data-filter="habilidades">
-<span>Stack</span>
-</button>
-<button class="tab-trigger px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-code-inline text-code-inline flex items-center gap-1.5 transition-all" data-filter="educacion">
-<span>Educación</span>
-</button>
-</nav>
-<!-- Quick Action: ATS Print & Direct Copy -->
-<div class="flex items-center gap-2">
-<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all font-code-inline text-code-inline" id="copy-email-top-btn">
-<span class="material-symbols-outlined text-[16px]">content_copy</span>
-<span id="copy-top-feedback">moisesmerza@gmail.com</span>
-</button>
-<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-all font-code-inline text-code-inline font-medium shadow-md" onclick="window.print()">
-<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
-<span>CV Imprimible (ATS)</span>
-</button>
-</div>
-</div>
-</div>
-<div class="max-w-[1200px] mx-auto px-gutter w-full py-space-xl space-y-space-2xl">
-<!-- Hero / Profile Identity Section -->
-<section class="relative rounded-2xl bg-surface-container-low p-space-lg lg:p-space-xl overflow-hidden shadow-xl">
-<!-- Ambient Backlight Gradient -->
-<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
-<div class="relative z-10 flex flex-col gap-space-lg">
-<!-- Top Metadata & Availability Status -->
-<div class="flex flex-wrap items-center justify-between gap-space-sm">
-<div class="flex flex-wrap items-center gap-2">
-<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-highest text-secondary font-code-inline text-code-inline">
-<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-              Disponible para nuevos desafíos
-            </span>
-<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-code text-label-code">
-              Backend &amp; Fullstack • Odoo &amp; Automation
-            </span>
-</div>
-<div class="flex items-center gap-3 text-on-surface-variant font-code-inline text-code-inline">
-<span class="flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
-              Venezuela (UTC-4)
-            </span>
-<span class="text-outline-variant">•</span>
-<span class="flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px] text-secondary">wifi_tethering</span>
-              Remoto / Híbrido
-            </span>
-</div>
-</div>
-<!-- Name & Professional Statement -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
-<div class="lg:col-span-8 flex flex-col gap-space-md">
-<div class="space-y-1">
-<span class="font-label-code text-label-code text-primary uppercase tracking-wider">// Senior Software &amp; ERP Engineer</span>
-<h1 class="font-display text-headline-lg lg:text-display text-on-surface tracking-tight">Moisés Merza</h1>
-<p class="font-headline-sm text-headline-sm text-primary font-medium">Software Developer | Backend &amp; Fullstack | Odoo &amp; Automation Specialist</p>
-</div>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              Especialista en arquitecturas escalables (<span class="text-on-surface font-medium">Clean Architecture, NestJS, FastAPI</span>), personalización profunda de ERPs (<span class="text-on-surface font-medium">Odoo 14 y 18</span>) y automatización de procesos críticos de alto volumen (<span class="text-secondary font-code-inline text-code-inline">+300.000 registros</span> procesados por streaming/chunking con Polars y PyArrow).
-            </p>
-<!-- Direct Contact Coordinates Bar -->
-<div class="flex flex-wrap items-center gap-2 pt-1">
-<a class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:text-primary transition-all font-code-inline text-code-inline" href="mailto:moisesmerza@gmail.com">
-<span class="material-symbols-outlined text-[16px] text-primary">mail</span>
-<span>moisesmerza@gmail.com</span>
-</a>
-<a class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:text-secondary transition-all font-code-inline text-code-inline" href="tel:+584125733808">
-<span class="material-symbols-outlined text-[16px] text-secondary">call</span>
-<span>+58 412 5733808</span>
-</a>
-<a class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:text-primary transition-all font-code-inline text-code-inline" href="https://github.com/merzamac" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[16px]">code</span>
-<span>github.com/merzamac</span>
-</a>
-<a class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:text-primary transition-all font-code-inline text-code-inline" href="https://linkedin.com/in/merzamac" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[16px]">share</span>
-<span>linkedin.com/in/merzamac</span>
-</a>
-</div>
-</div>
-<!-- Quick Telemetry Sidecard -->
-<div class="lg:col-span-4 rounded-xl bg-surface-container p-space-md flex flex-col gap-space-sm shadow-md">
-<div class="flex items-center justify-between pb-2">
-<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-secondary"></span>
-                SYSTEM_TELEMETRY.LOG
-              </span>
-<span class="font-label-code text-label-code text-primary">STABLE</span>
-</div>
-<div class="space-y-2">
-<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
-<span class="font-body-sm text-body-sm text-on-surface-variant">Arquitectura Primaria</span>
-<span class="font-code-inline text-code-inline text-primary">Clean / Hexagonal</span>
-</div>
-<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
-<span class="font-body-sm text-body-sm text-on-surface-variant">ERP Core</span>
-<span class="font-code-inline text-code-inline text-secondary">Odoo v14 / v18</span>
-</div>
-<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
-<span class="font-body-sm text-body-sm text-on-surface-variant">Procesamiento de Datos</span>
-<span class="font-code-inline text-code-inline text-tertiary">Polars &amp; PyArrow</span>
-</div>
-<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
-<span class="font-body-sm text-body-sm text-on-surface-variant">Concurrencia &amp; Colas</span>
-<span class="font-code-inline text-code-inline text-primary">WebSockets / Async</span>
-</div>
-</div>
-<!-- Terminal Quote Mini -->
-<div class="mt-1 p-2 rounded-lg bg-surface-container-lowest text-on-surface-variant font-code-inline text-label-code flex items-start gap-1.5">
-<span class="text-primary font-bold">&gt;</span>
-<span>"Código predecible, contratos estrictos, cero fugas de memoria."</span>
-</div>
-</div>
-</div>
-<!-- Quantitative Impact Ribbon -->
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-space-sm pt-2">
-<div class="p- space-md rounded-xl bg-surface-container flex flex-col gap-1">
-<span class="font-stat-metric text-stat-metric text-primary">+300K</span>
-<span class="font-body-sm text-body-sm text-on-surface">Registros procesados por streaming ETL</span>
-<span class="font-label-code text-label-code text-on-surface-variant">Zero-OOM con Polars</span>
-</div>
-<div class="p- space-md rounded-xl bg-surface-container flex flex-col gap-1">
-<span class="font-stat-metric text-stat-metric text-secondary">12 Repos</span>
-<span class="font-body-sm text-body-sm text-on-surface">+49k Líneas de código auditadas</span>
-<span class="font-label-code text-label-code text-on-surface-variant">FastAPI, NestJS &amp; Django</span>
-</div>
-<div class="p- space-md rounded-xl bg-surface-container flex flex-col gap-1">
-<span class="font-stat-metric text-stat-metric text-tertiary">v14 &amp; v18</span>
-<span class="font-body-sm text-body-sm text-on-surface">Odoo ERP Customizations</span>
-<span class="font-label-code text-label-code text-on-surface-variant">POS, Cashea &amp; Facturación</span>
-</div>
-<div class="p- space-md rounded-xl bg-surface-container flex flex-col gap-1">
-<span class="font-stat-metric text-stat-metric text-primary">99.98%</span>
-<span class="font-body-sm text-body-sm text-on-surface">Sincronización POS Desacoplada</span>
-<span class="font-label-code text-label-code text-on-surface-variant">WebSockets / Socket.IO</span>
-</div>
-</div>
-</div>
-</section>
-<!-- SECTION: Experiencia Laboral -->
-<section class="portfolio-section space-y-space-lg" data-section="experiencia">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm">
-<div>
-<div class="flex items-center gap-2 font-code-inline text-code-inline text-primary">
-<span class="material-symbols-outlined text-[18px]">work</span>
-<span>01 // TRAYECTORIA PROFESIONAL</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Experiencia Laboral</h2>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
-          Resolución de cuellos de botella en producción, desacoplamiento de ERPs y diseño de pipelines de datos tolerantes a fallos.
-        </p>
-</div>
-<!-- Experience Timeline Cards -->
-<div class="space-y-space-md">
-<!-- Job 1: Grupo Valcro -->
-<div class="p-space-lg rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md flex flex-col gap-space-md">
-<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-sm">
-<div class="space-y-1">
-<div class="flex flex-wrap items-center gap-2">
-<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Desarrollador Fullstack &amp; Odoo</h3>
-</div>
-<div class="flex items-center gap-2 text-on-surface-variant font-code-inline text-code-inline">
-<span class="text-primary font-semibold">Grupo Valcro</span>
-<span>•</span>
-<span>Junio 2026 – Septiembre 2026</span>
-<span>•</span>
-<span>Valencia, VE</span>
-</div>
-</div>
-<!-- Tech Badges for Role -->
-<div class="flex flex-wrap items-center gap-1.5">
-<span class="px-2 py-1 rounded bg-surface-container-high text-primary font-label-code text-label-code">Odoo 14 &amp; 18</span>
-<span class="px-2 py-1 rounded bg-surface-container-high text-secondary font-label-code text-label-code">NestJS 11</span>
-<span class="px-2 py-1 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">React 19</span>
-<span class="px-2 py-1 rounded bg-surface-container-high text-tertiary font-label-code text-label-code">WebSockets</span>
-<span class="px-2 py-1 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">PostgreSQL</span>
-</div>
-</div>
-<!-- Problem & Solution Architectural Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-2">
-<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-2">
-<span class="font-code-inline text-code-inline text-error flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[16px]">report_problem</span>
-                Reto &amp; Cuello de Botella Crítico
-              </span>
-<p class="font-body-md text-body-md text-on-surface-variant">
-                En horas pico comerciales, la sincronización directa del catálogo y recálculo de stock bloqueaba las cajas POS en Odoo 14, generando bloqueos en base de datos PostgreSQL e inconsistencias con pasarelas de pago a cuotas (Cashea) y fiscalización de retenciones locales.
-              </p>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-2">
-<span class="font-code-inline text-code-inline text-secondary flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[16px]">verified</span>
-                Solución de Ingeniería &amp; Desacoplamiento
-              </span>
-<p class="font-body-md text-body-md text-on-surface-variant">
-                Diseñé un middleware en <span class="text-on-surface font-medium">NestJS con Socket.IO y colas asíncronas</span> que separa el cálculo de existencias del front del POS. Se garantizó respuesta sub-segundo en caja registradora, integración limpia con Cashea y trazabilidad estricta de arqueos diarios y libro de compras fiscal.
-              </p>
-</div>
-</div>
-<!-- Impact Metrics List -->
-<div class="space-y-2 pt-1">
-<span class="font-label-code text-label-code text-primary uppercase">// Logros de alto impacto verificables:</span>
-<ul class="space-y-1.5 text-on-surface-variant font-body-md text-body-md">
-<li class="flex items-start gap-2">
-<span class="font-code-inline text-code-inline text-secondary font-bold">+100%</span>
-<span>Continuidad operativa sin bloqueos ni pérdidas de sesión en POS durante promociones de alto tráfico masivo.</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="font-code-inline text-code-inline text-primary font-bold">100%</span>
-<span>Automatización del control diario de caja, conciliación de notas de crédito y corrección del Libro de Compras para el SENIAT.</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="font-code-inline text-code-inline text-tertiary font-bold">Fullstack</span>
-<span>Desarrollo de plataforma multiempresa de compras e inventarios conectando un backend NestJS tipado con un cliente React 19 desacoplado.</span>
-</li>
-</ul>
-</div>
-</div>
-<!-- Job 2: Sempiterno Group -->
-<div class="p-space-lg rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md flex flex-col gap-space-md">
-<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-sm">
-<div class="space-y-1">
-<div class="flex flex-wrap items-center gap-2">
-<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Líder de Desarrollo RPA &amp; Automatización</h3>
-</div>
-<div class="flex items-center gap-2 text-on-surface-variant font-code-inline text-code-inline">
-<span class="text-primary font-semibold">Sempiterno Group</span>
-<span>•</span>
-<span>Abril 2025 – Mayo 2026</span>
-<span>•</span>
-<span>Remoto</span>
-</div>
-</div>
-<!-- Tech Badges for Role -->
-<div class="flex flex-wrap items-center gap-1.5">
-<span class="px-2 py-1 rounded bg-surface-container-high text-primary font-label-code text-label-code">Python</span>
-<span class="px-2 py-1 rounded bg-surface-container-high text-secondary font-label-code text-label-code">Polars &amp; PyArrow</span>
-<span class="px-2 py-1 rounded bg-surface-container-high text-tertiary font-label-code text-label-code">RPA Windows</span>
-<span class="px-2 py-1 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">OCR Tesseract</span>
-<span class="px-2 py-1 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">pytest &amp; mypy</span>
-</div>
-</div>
-<!-- Problem & Solution Architectural Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-2">
-<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-2">
-<span class="font-code-inline text-code-inline text-error flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[16px]">report_problem</span>
-                Reto &amp; Cuello de Botella Crítico
-              </span>
-<p class="font-body-md text-body-md text-on-surface-variant">
-                Extracción masiva de libros contables y conciliaciones bancarias multimoneda con datasets heterogéneos (&gt;300.000 filas). Los scripts existentes en pandas colapsaban con Out-Of-Memory (OOM) y el software de escritorio contable legacy no disponía de APIs ni accesos directos por SQL.
-              </p>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-2">
-<span class="font-code-inline text-code-inline text-secondary flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[16px]">verified</span>
-                Solución de Ingeniería &amp; Librerías Propias
-              </span>
-<p class="font-body-md text-body-md text-on-surface-variant">
-                Refactoricé los motores a <span class="text-on-surface font-medium">Polars y fastexcel</span> con evaluación perezosa (lazy frames) y streaming. Desarrollé dos librerías internas reutilizables: <span class="font-code-inline text-code-inline text-primary">pyaconsys</span> y <span class="font-code-inline text-code-inline text-primary">concar_sql_wrapper</span> integrando RPA (pywinauto, uiautomation) y OCR asistido por OpenCV.
-              </p>
-</div>
-</div>
-<!-- Impact Metrics List -->
-<div class="space-y-2 pt-1">
-<span class="font-label-code text-label-code text-primary uppercase">// Logros de alto impacto verificables:</span>
-<ul class="space-y-1.5 text-on-surface-variant font-body-md text-body-md">
-<li class="flex items-start gap-2">
-<span class="font-code-inline text-code-inline text-secondary font-bold">+300k</span>
-<span>Registros procesados por lote en streaming continuo sin desbordamiento de RAM, reduciendo el tiempo de ejecución en un 82%.</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="font-code-inline text-code-inline text-primary font-bold">95%+</span>
-<span>Asertividad en conciliación bancaria multimoneda usando fuzzy string matching y normalización algorítmica de glosas.</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="font-code-inline text-code-inline text-tertiary font-bold">100%</span>
-<span>Cobertura de tipado estricto con mypy y pruebas automatizadas con pytest previniendo regresiones en builds de producción.</span>
-</li>
-</ul>
-</div>
-</div>
-<!-- Job 3: Ceproalarm -->
-<div class="p-space-lg rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md flex flex-col gap-space-md">
-<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-sm">
-<div class="space-y-1">
-<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Especialista de Infraestructura y Soporte TI</h3>
-<div class="flex items-center gap-2 text-on-surface-variant font-code-inline text-code-inline">
-<span class="text-primary font-semibold">Ceproalarm</span>
-<span>•</span>
-<span>Septiembre 2023 – Mayo 2025</span>
-<span>•</span>
-<span>Valencia, VE</span>
-</div>
-</div>
-<div class="flex flex-wrap items-center gap-1.5">
-<span class="px-2 py-1 rounded bg-surface-container-high text-primary font-label-code text-label-code">Proxmox VE</span>
-<span class="px-2 py-1 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Linux Ubuntu Server</span>
-<span class="px-2 py-1 rounded bg-surface-container-high text-secondary font-label-code text-label-code">Networking VLAN</span>
-<span class="px-2 py-1 rounded bg-surface-container-high text-tertiary font-label-code text-label-code">Backups Automatizados</span>
-</div>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">
-            Administración de clústeres de virtualización Proxmox VE, aprovisionamiento de instancias Ubuntu Server de alta disponibilidad para servicios corporativos, segmentación de redes, políticas de firewall y esquemas automatizados de respaldos cifrados con rotación semanal.
-          </p>
-<div class="flex flex-wrap gap-4 text-on-surface-variant font-code-inline text-label-code">
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span> 99.9% Uptime Servidores</span>
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span> Recuperación de Desastres (DRP)</span>
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span> Scripting Bash para Mantenimiento</span>
-</div>
-</div>
-</div>
-</section>
-<!-- SECTION: Proyectos Backend & Software -->
-<section class="portfolio-section space-y-space-lg" data-section="proyectos">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm">
-<div>
-<div class="flex items-center gap-2 font-code-inline text-code-inline text-primary">
-<span class="material-symbols-outlined text-[18px]">terminal</span>
-<span>02 // ARQUITECTURA &amp; CÓDIGO</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Proyectos de Desarrollo Backend &amp; Software</h2>
-</div>
-<div class="font-label-code text-label-code text-on-surface-variant">
-          Click en cada proyecto para inspeccionar arquitectura y contratos
+  @page{margin:12mm}
+  header,.progress,.blobs,.hero-cta,.foot nav{display:none!important}
+  body{background:#fff;color:#000;font-size:12px}
+  .js .reveal{opacity:1!important;transform:none!important}
+  .blob,.avatar::before{display:none!important}
+  .card,.job,.stat,.ccard{box-shadow:none!important;border:1px solid #bbb!important;break-inside:avoid;page-break-inside:avoid;padding:12px!important}
+  .sec{padding:14px 0!important}
+  h1{font-size:26px}h2{font-size:18px}
+  .stat b{font-size:18px}
+  a{color:#000!important;text-decoration:none}
+  #contacto a span{color:#000!important}
+  #contacto a::after{content:" — " attr(href);font-size:11px}
+  .tagline::after{display:none}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<header id="header">
+  <div class="wrap bar">
+    <a class="brand" href="#inicio"><span class="logo">M</span> Moisés Merza</a>
+    <nav class="mainnav" id="mainnav" aria-label="Secciones">
+      <a href="#perfil" data-nav>Perfil</a>
+      <a href="#experiencia" data-nav>Experiencia</a>
+      <a href="#proyectos" data-nav>Proyectos</a>
+      <a href="#habilidades" data-nav>Habilidades</a>
+      <a href="#educacion" data-nav>Educación</a>
+      <a href="#contacto" data-nav>Contacto</a>
+    </nav>
+    <div class="actions">
+      <a aria-label="GitHub" class="icon-btn" href="https://github.com/merzamac" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">code</span></a>
+      <a aria-label="LinkedIn" class="icon-btn" href="https://linkedin.com/in/merzamac" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">share</span></a>
+      <button class="btn btn-ghost" onclick="window.print()" type="button"><span class="material-symbols-outlined" style="font-size:17px">picture_as_pdf</span> CV</button>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+    <div class="wrap hero-grid">
+      <div class="hero-top reveal">
+        <div class="avatar"><span>M</span></div>
+        <div>
+          <div class="pill" style="margin-bottom:10px"><span class="material-symbols-outlined" style="font-size:16px;color:var(--blue)">location_on</span> Venezuela</div>
+          <h1>Moisés Merza</h1>
+          <span class="tagline" id="tagline">Software Developer | Automation Specialist | Data Analytics &amp; SQL</span>
         </div>
-</div>
-<!-- Projects Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
-<!-- Project 1: RESTful Content Engine API -->
-<div class="rounded-2xl bg-surface-container-low p-space-md flex flex-col justify-between gap-space-md hover:bg-surface-container transition-all shadow-md group">
-<div class="space-y-space-sm">
-<div class="flex items-center justify-between">
-<span class="px-2.5 py-0.5 rounded bg-primary/10 text-primary font-code-inline text-label-code font-semibold">FastAPI • Production Ready</span>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-[20px]">api</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">RESTful Content Engine API</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Motor de contenidos y usuarios con arquitectura multicapa estricta (Router, Service, Repository). Mitigación radical de consultas N+1 con <code class="text-primary font-code-inline">joinedload</code> y <code class="text-primary font-code-inline">selectinload</code> en SQLAlchemy 2.0.
-            </p>
-<div class="flex flex-wrap gap-1 pt-1">
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">FastAPI</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">SQLAlchemy 2.0</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">PostgreSQL</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">Pydantic v2</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">JWT Auth</span>
-</div>
-</div>
-<div class="space-y-2 pt-2">
-<a class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary font-code-inline text-code-inline transition-all" href="https://github.com/merzamac/FastAPIEducation" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[16px]">github</span><span>ver_repositorio()</span></a>
-<button class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-code-inline text-code-inline transition-all" onclick="toggleProjectModal('modal-fastapi')">
-<span>&gt; inspeccionar_arquitectura()</span>
-<span class="material-symbols-outlined text-[16px]">chevron_right</span>
-</button>
-</div>
-</div>
-<!-- Project 2: Enterprise Employee Management System -->
-<div class="rounded-2xl bg-surface-container-low p-space-md flex flex-col justify-between gap-space-md hover:bg-surface-container transition-all shadow-md group">
-<div class="space-y-space-sm">
-<div class="flex items-center justify-between">
-<span class="px-2.5 py-0.5 rounded bg-secondary/10 text-secondary font-code-inline text-label-code font-semibold">Django 4.2 MTV • Enterprise</span>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors text-[20px]">corporate_fare</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Enterprise Employee System</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Sistema integral de RRHH bajo arquitectura MTV con Class-Based Views avanzadas (CBV), validaciones profundas en <code class="text-secondary font-code-inline">form_valid()</code>, decoradores de sesión y gestión modular desacoplada para producción.
-            </p>
-<div class="flex flex-wrap gap-1 pt-1">
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">Django 4.2</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">CBV</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">PostgreSQL</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">Django ORM</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">Clean MTV</span>
-</div>
-</div>
-<div class="space-y-2 pt-2">
-<a class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-secondary font-code-inline text-code-inline transition-all" href="https://github.com/merzamac/educationDjango" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[16px]">github</span><span>ver_repositorio()</span></a>
-<button class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-secondary hover:text-on-secondary text-on-surface font-code-inline text-code-inline transition-all" onclick="toggleProjectModal('modal-django')">
-<span>&gt; inspeccionar_arquitectura()</span>
-<span class="material-symbols-outlined text-[16px]">chevron_right</span>
-</button>
-</div>
-</div>
-<!-- Project 3: Retail POS Middleware & Price Handler -->
-<div class="rounded-2xl bg-surface-container-low p-space-md flex flex-col justify-between gap-space-md hover:bg-surface-container transition-all shadow-md group">
-<div class="space-y-space-sm">
-<div class="flex items-center justify-between">
-<span class="px-2.5 py-0.5 rounded bg-tertiary/10 text-tertiary font-code-inline text-label-code font-semibold">NestJS 11 • Realtime</span>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-tertiary transition-colors text-[20px]">sync_alt</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Retail POS Realtime Middleware</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Capa de middleware asíncrono para Odoo 14 POS. Maneja sincronización de inventario, actualización de lotes, conversión cambiaria multimoneda y broadcast mediante WebSockets con latencia sub-50ms.
-            </p>
-<div class="flex flex-wrap gap-1 pt-1">
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">NestJS</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">Socket.IO</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">TypeORM</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">Odoo XML-RPC</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-code text-label-code">Redis Cache</span>
-</div>
-</div>
-<div class="space-y-2 pt-2">
-<button class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-tertiary hover:text-on-tertiary text-on-surface font-code-inline text-code-inline transition-all" onclick="toggleProjectModal('modal-retail')">
-<span>&gt; inspeccionar_arquitectura()</span>
-<span class="material-symbols-outlined text-[16px]">chevron_right</span>
-</button>
-</div>
-</div>
-</div>
-</section>
-<!-- SECTION: Odoo & RPA Automation Details -->
-<section class="portfolio-section space-y-space-lg" data-section="odoo-rpa">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm">
-<div>
-<div class="flex items-center gap-2 font-code-inline text-code-inline text-secondary">
-<span class="material-symbols-outlined text-[18px]">smart_toy</span>
-<span>03 // AUTOMATIZACIÓN DE DATOS &amp; ERP</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Odoo &amp; RPA: Alto Rendimiento sin Bloqueos</h2>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
-          Automatizaciones sobre sistemas contables cerrados y personalizaciones avanzadas del framework Odoo.
-        </p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
-<!-- ETL Engine Focus -->
-<div class="lg:col-span-6 p-space-lg rounded-2xl bg-surface-container-low flex flex-col justify-between gap-space-md shadow-md">
-<div class="space-y-space-sm">
-<div class="flex items-center justify-between">
-<span class="font-code-inline text-code-inline text-secondary font-bold flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px]">dataset</span>
-                High-Throughput Accounting ETL Engine
-              </span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-code text-label-code">Polars / PyArrow</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">
-              Pipeline de ingesta masiva diseñado para sustituir rutinas pesadas de pandas. Procesa libros contables y extractos bancarios en lotes de 10.000 a 50.000 registros mediante evaluación perezosa (<code class="font-code-inline text-code-inline text-primary">scan_parquet / scan_ipc</code>) y unificación analítica por centro de costo.
-            </p>
-<div class="p-space-sm rounded-xl bg-surface-container space-y-2">
-<div class="flex items-center justify-between font-label-code text-label-code">
-<span class="text-on-surface-variant">Consumo de Memoria RAM vs Pandas Tradicional</span>
-<span class="text-secondary font-bold">-76% de uso</span>
-</div>
-<!-- Simulated Minimal SVG Bar Graph -->
-<div class="w-full bg-surface-container-highest h-3 rounded-full overflow-hidden flex">
-<div class="bg-secondary h-full rounded-full" style="width: 24%;"></div>
-</div>
-<div class="flex justify-between font-label-code text-[11px] text-on-surface-variant">
-<span>Polars Streaming (240MB)</span>
-<span>Pandas Legacy (1050MB OOM Risk)</span>
-</div>
-</div>
-</div>
-<div class="flex flex-wrap gap-2 text-on-surface-variant font-code-inline text-label-code">
-<span class="px-2 py-1 rounded bg-surface-container">Chunk Streaming</span>
-<span class="px-2 py-1 rounded bg-surface-container">FastExcel Engine</span>
-<span class="px-2 py-1 rounded bg-surface-container">Fuzzy String Matching</span>
-</div>
-</div>
-<!-- Desktop ERP Automation Suite -->
-<div class="lg:col-span-6 p-space-lg rounded-2xl bg-surface-container-low flex flex-col justify-between gap-space-md shadow-md">
-<div class="space-y-space-sm">
-<div class="flex items-center justify-between">
-<span class="font-code-inline text-code-inline text-primary font-bold flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px]">precision_manufacturing</span>
-                Desktop ERP Suite: pyaconsys &amp; concar_sql_wrapper
-              </span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code text-label-code">Custom Framework</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">
-              Librerías Python creadas desde cero para interactuar con sistemas de contabilidad legacy Windows (Aconsys / Concar). Aplica Clean Architecture en capas de acceso, controladores UI (<code class="font-code-inline text-code-inline text-primary">pywinauto, uiautomation</code>) y OCR adaptativo con OpenCV y Tesseract para leer tablas bloqueadas.
-            </p>
-<div class="p-space-sm rounded-xl bg-surface-container space-y-1 font-code-inline text-label-code text-on-surface-variant">
-<div class="text-primary font-bold">&gt; arquitectura_modular:</div>
-<div class="pl-3 space-y-0.5">
-<div>├── <span class="text-on-surface">domain/</span> (Entidades contables, asientos y tipos)</div>
-<div>├── <span class="text-on-surface">adapters/</span> (UI Automation hooks &amp; SQL Wrappers)</div>
-<div>└── <span class="text-on-surface">ocr/</span> (Denoise OpenCV + Tesseract Engine)</div>
-</div>
-</div>
-</div>
-<div class="flex flex-wrap gap-2 text-on-surface-variant font-code-inline text-label-code">
-<span class="px-2 py-1 rounded bg-surface-container">pytest Test Suite</span>
-<span class="px-2 py-1 rounded bg-surface-container">mypy Strict Mode</span>
-<span class="px-2 py-1 rounded bg-surface-container">Zero Headless Crashes</span>
-</div>
-</div>
-</div>
-<!-- Odoo Core Competencies Banner -->
-<div class="p-space-md rounded-2xl bg-surface-container flex flex-col md:flex-row items-center justify-between gap-space-md">
-<div class="flex items-center gap-space-md">
-<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-primary text-[24px]">extension</span>
-</div>
-<div>
-<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Odoo 14 &amp; 18 Customizations</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-              Desarrollo de módulos con modelos ORM custom, vistas XML, Wizards transient, reportes QWeb dinámicos, permisos por <code class="font-code-inline text-code-inline text-primary">ir.model.access.csv</code> y reglas de registro.
-            </p>
-</div>
-</div>
-<div class="flex flex-wrap items-center gap-2 shrink-0">
-<span class="px-3 py-1.5 rounded-lg bg-surface-container-high text-secondary font-code-inline text-code-inline font-medium">Localización Venezuela</span>
-<span class="px-3 py-1.5 rounded-lg bg-surface-container-high text-primary font-code-inline text-code-inline font-medium">Pasarela Cashea</span>
-<span class="px-3 py-1.5 rounded-lg bg-surface-container-high text-tertiary font-code-inline text-code-inline font-medium">Multi-Almacén</span>
-</div>
-</div>
-</section>
-<!-- SECTION: Habilidades Técnicas Categorizadas -->
-<section class="portfolio-section space-y-space-lg" data-section="habilidades">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm">
-<div>
-<div class="flex items-center gap-2 font-code-inline text-code-inline text-primary">
-<span class="material-symbols-outlined text-[18px]">memory</span>
-<span>04 // ARSENAL TECNOLÓGICO</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Habilidades &amp; Stack Técnico</h2>
-</div>
-<div class="font-label-code text-label-code text-on-surface-variant">
-          Categorizado por profundidad y rigor de producción
+      </div>
+      <p class="lead reveal">Desarrollador de Software con experiencia integral en desarrollo Backend (Python, NestJS), personalización profunda de ERPs (Odoo 14 y 18) y automatización de procesos críticos (RPA / ETL).</p>
+      <div class="contact-row reveal">
+        <a href="mailto:moisesmerza@gmail.com"><span class="material-symbols-outlined">mail</span> moisesmerza@gmail.com</a>
+        <a href="tel:+584125733808"><span class="material-symbols-outlined">call</span> +58 4125733808</a>
+        <a href="https://linkedin.com/in/merzamac" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">share</span> linkedin.com/in/merzamac</a>
+        <a href="https://github.com/merzamac" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">code</span> github.com/merzamac</a>
+      </div>
+      <div class="hero-cta reveal">
+        <a class="btn btn-blue" href="mailto:moisesmerza@gmail.com"><span class="material-symbols-outlined" style="font-size:18px">mail</span> Escríbeme</a>
+        <button class="btn btn-ghost" onclick="window.print()" type="button"><span class="material-symbols-outlined" style="font-size:18px">description</span> Ver CV imprimible</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat reveal"><b data-count="300000" data-prefix="+">+300.000</b><span>Registros procesados por ETL</span></div>
+        <div class="stat reveal"><b data-count="3">3</b><span>Experiencias profesionales</span></div>
+        <div class="stat reveal"><b data-count="4">4</b><span>Proyectos de desarrollo</span></div>
+        <div class="stat reveal"><b data-count="2">2</b><span>Versiones de Odoo (14 y 18)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFIL -->
+  <section class="sec" id="perfil">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="kicker">01 // Perfil profesional</span>
+          <h2>Perfil</h2>
         </div>
-</div>
-<!-- Skills Matrix Bento -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
-<!-- Skill Group 1: Backend & APIs -->
-<div class="p-space-lg rounded-2xl bg-surface-container-low flex flex-col gap-space-md shadow-md">
-<div class="flex items-center gap-2.5 pb-2">
-<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-[18px]">dns</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Backend &amp; APIs</h3>
-<span class="font-label-code text-label-code text-on-surface-variant">Contratos estrictos y alta concurrencia</span>
-</div>
-</div>
-<div class="flex flex-wrap gap-1.5">
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              FastAPI
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              NestJS (v7 - v11)
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              Django 4.2
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-              SQLAlchemy 2.0
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-              TypeORM
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-              PostgreSQL
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              Pydantic v2
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-              WebSockets / Socket.IO
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              RESTful / Swagger OpenAPI
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              JWT &amp; RBAC Auth
-            </span>
-</div>
-</div>
-<!-- Skill Group 2: Odoo ERP Specialist -->
-<div class="p-space-lg rounded-2xl bg-surface-container-low flex flex-col gap-space-md shadow-md">
-<div class="flex items-center gap-2.5 pb-2">
-<div class="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-[18px]">account_tree</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Odoo ERP Specialist</h3>
-<span class="font-label-code text-label-code text-on-surface-variant">v14 y v18 Architecture</span>
-</div>
-</div>
-<div class="flex flex-wrap gap-1.5">
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-              Odoo ORM Avanzado
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-              POS / TPV Customization
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              Pasarelas (Cashea)
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              XML Views &amp; QWeb
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              Transient Models &amp; Wizards
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              Seguridad &amp; ir.model.access
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              Inventario Multi-almacén
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              Localización Contable VE
-            </span>
-</div>
-</div>
-<!-- Skill Group 3: RPA, Datos & ETL -->
-<div class="p-space-lg rounded-2xl bg-surface-container-low flex flex-col gap-space-md shadow-md">
-<div class="flex items-center gap-2.5 pb-2">
-<div class="w-8 h-8 rounded-lg bg-tertiary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-tertiary text-[18px]">stream</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">RPA, Datos &amp; ETL</h3>
-<span class="font-label-code text-label-code text-on-surface-variant">Alto volumen y streaming tabular</span>
-</div>
-</div>
-<div class="flex flex-wrap gap-1.5">
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-              Polars (Lazy &amp; Streaming)
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-              PyArrow &amp; FastExcel
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              pandas &amp; openpyxl
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-              pywinauto &amp; uiautomation
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              pyautogui &amp; Web Scraping
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              pytesseract &amp; OpenCV (OCR)
-            </span>
-</div>
-</div>
-<!-- Skill Group 4: Frontend Development -->
-<div class="p-space-lg rounded-2xl bg-surface-container-low flex flex-col gap-space-md shadow-md">
-<div class="flex items-center gap-2.5 pb-2">
-<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-[18px]">web</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Frontend Ecosystem</h3>
-<span class="font-label-code text-label-code text-on-surface-variant">UIs reactivas y componentes limpios</span>
-</div>
-</div>
-<div class="flex flex-wrap gap-1.5">
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              React 19
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              Tailwind CSS
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              React Router
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              Vite Build Tooling
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              Angular 7 &amp; NGXS
-            </span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">
-              HTML5 / Modern JS &amp; TS
-            </span>
-</div>
-</div>
-<!-- Skill Group 5: DevOps, Architecture & Rigor (Spans 2 columns on lg) -->
-<div class="lg:col-span-2 p-space-lg rounded-2xl bg-surface-container-low flex flex-col justify-between gap-space-md shadow-md">
-<div>
-<div class="flex items-center gap-2.5 pb-2">
-<div class="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-[18px]">terminal</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">DevOps, Arquitectura &amp; Calidad</h3>
-<span class="font-label-code text-label-code text-on-surface-variant">Prácticas de ingeniería de software confiable</span>
-</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-2">
-<div class="space-y-1">
-<span class="font-code-inline text-label-code text-primary uppercase">// Patrones &amp; Principios</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-                  Clean Architecture, Repository Pattern, Dependency Injection, separación estricta de dominios, contratos inmutables.
-                </p>
-</div>
-<div class="space-y-1">
-<span class="font-code-inline text-label-code text-secondary uppercase">// Testing &amp; Tipado</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-                  pytest suites completas, Jest, mypy strict mode, validadores en tiempo de compilación con Pydantic v2.
-                </p>
-</div>
-</div>
-</div>
-<div class="flex flex-wrap gap-1.5 pt-2">
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">Docker &amp; Containers</span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">Linux (Ubuntu Server)</span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">Proxmox VE</span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">Git / GitLab CI</span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">PDM Python Manager</span>
-<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-code-inline text-code-inline">GitHub Actions</span>
-</div>
-</div>
-</div>
-</section>
-<!-- SECTION: Educación & Certificaciones -->
-<section class="portfolio-section space-y-space-lg" data-section="educacion">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm">
-<div>
-<div class="flex items-center gap-2 font-code-inline text-code-inline text-tertiary">
-<span class="material-symbols-outlined text-[18px]">school</span>
-<span>05 // FORMACIÓN &amp; VALIDADORES</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Educación &amp; Certificaciones</h2>
-</div>
-<div class="font-label-code text-label-code text-on-surface-variant">
-          Formación formal universitaria y especializaciones técnicas
+        <p>Experiencia integral en backend, ERP y automatización de procesos críticos.</p>
+      </div>
+      <div class="card reveal">
+        <p class="profile-text">Desarrollador de Software con experiencia integral en desarrollo Backend (Python, NestJS), personalización profunda de ERPs (Odoo 14 y 18) y automatización de procesos críticos (RPA / ETL). Especialista en diseño de arquitecturas escalables (Clean Architecture, Repository Pattern), optimización de flujos de alta concurrencia (procesamiento masivo de +300.000 registros con Polars) y desacoplamiento de servicios. Capacidad demostrada resolviendo cuellos de botella en operaciones financieras, contables y retail multiempresa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section class="sec" id="experiencia">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="kicker">02 // Trayectoria</span>
+          <h2>Experiencia Laboral</h2>
         </div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
-<!-- University Degree -->
-<div class="p-space-lg rounded-2xl bg-surface-container-low flex flex-col justify-between gap-space-md shadow-md">
-<div class="space-y-space-sm">
-<div class="flex items-center justify-between">
-<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-code-inline text-label-code">Grado Universitario</span>
-<span class="font-label-code text-label-code text-on-surface-variant">9no Semestre</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Licenciatura en Computación</h3>
-<p class="font-body-md text-body-md text-primary font-medium">Universidad de Carabobo (UC)</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-              Foco en computación teórica, algoritmos avanzados, análisis numérico, bases de datos relacionales y diseño de sistemas complejos.
-            </p>
-</div>
-<div class="flex items-center gap-1.5 text-on-surface-variant font-code-inline text-label-code">
-<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
-<span>Estado: En curso avanzado</span>
-</div>
-</div>
-<!-- Certifications Stack -->
-<div class="p-space-lg rounded-2xl bg-surface-container-low flex flex-col justify-between gap-space-md shadow-md">
-<div class="space-y-space-sm">
-<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-code-inline text-label-code">Credenciales Técnicas</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Certificaciones Oficiales</h3>
-<div class="space-y-2 pt-1">
-<div class="p-2 rounded-lg bg-surface-container space-y-0.5">
-<span class="font-code-inline text-code-inline text-on-surface font-semibold">IBM Data Analyst Specialization</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">IBM / Coursera (Pipelines de datos, SQL, visualización)</p>
-</div>
-<div class="p-2 rounded-lg bg-surface-container space-y-0.5">
-<span class="font-code-inline text-code-inline text-on-surface font-semibold">Docker Profesional &amp; DevOps</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Código Facilito (Contenedores multi-etapa y orquestación)</p>
-</div>
-<div class="p-2 rounded-lg bg-surface-container space-y-0.5">
-<span class="font-code-inline text-code-inline text-on-surface font-semibold">FastAPI &amp; Odoo v17/v18 Developers</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Udemy (ORM avanzado, API REST y microservicios)</p>
-</div>
-</div>
-</div>
-<span class="font-label-code text-label-code text-secondary flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]">verified_user</span>
-<span>Verificable en plataforma</span>
-</span>
-</div>
-<!-- Idiomas & Soft-Skills -->
-<div class="p-space-lg rounded-2xl bg-surface-container-low flex flex-col justify-between gap-space-md shadow-md">
-<div class="space-y-space-sm">
-<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-code-inline text-label-code">Competencia Lingüística</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Idiomas &amp; Comunicación</h3>
-<div class="space-y-space-sm pt-1">
-<div class="p- space-sm rounded-xl bg-surface-container space-y-1">
-<div class="flex items-center justify-between font-code-inline text-code-inline">
-<span class="text-on-surface font-bold">Español</span>
-<span class="text-secondary">Nativo</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Lengua materna, comunicación técnica precisa para stakeholders.</p>
-</div>
-<div class="p- space-sm rounded-xl bg-surface-container space-y-1">
-<div class="flex items-center justify-between font-code-inline text-code-inline">
-<span class="text-on-surface font-bold">Inglés</span>
-<span class="text-primary">Avanzado Técnico</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Lectura fluida de RFCs, especificaciones, documentación oficial y colaboración asíncrona. Certificado por CEVAC.</p>
-</div>
-</div>
-</div>
-<div class="p-2 rounded-lg bg-surface-container-lowest font-code-inline text-label-code text-on-surface-variant flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[16px] text-primary">translate</span>
-<span>Documentación de código y APIs 100% en inglés estándar.</span>
-</div>
-</div>
-</div>
-</section>
-<!-- SECTION: Call to Action & Contact Section -->
-<section class="portfolio-section space-y-space-lg" data-section="contacto">
-<div class="rounded-3xl bg-surface-container-low p-space-lg lg:p-space-xl relative overflow-hidden shadow-2xl">
-<div class="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-<!-- Contact Left: Information & Channels -->
-<div class="lg:col-span-6 space-y-space-md">
-<div class="space-y-2">
-<span class="font-label-code text-label-code text-secondary uppercase">// INICIAR COMUNICACIÓN</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">¿Tienes un reto de ingeniería o un ERP que requiere optimización?</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">
-                Disponible para roles como Desarrollador Backend, Ingeniero Fullstack o Consultor / Especialista de Automatización Odoo. Envíame un mensaje directo o contáctame por cualquiera de mis canales oficiales.
-              </p>
-</div>
-<!-- Direct Channel Buttons -->
-<div class="space-y-2.5 pt-2">
-<div class="p-space-sm rounded-xl bg-surface-container flex items-center justify-between gap-space-sm">
-<div class="flex items-center gap-space-sm min-w-0">
-<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-primary text-[20px]">mail</span>
-</div>
-<div class="min-w-0">
-<span class="font-label-code text-label-code text-on-surface-variant">Correo Electrónico</span>
-<p class="font-code-inline text-code-inline text-on-surface truncate">moisesmerza@gmail.com</p>
-</div>
-</div>
-<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-code-inline text-label-code transition-all flex items-center gap-1 shrink-0" id="copy-email-card-btn">
-<span class="material-symbols-outlined text-[16px]">content_copy</span>
-<span id="copy-card-feedback">Copiar</span>
-</button>
-</div>
-<div class="p-space-sm rounded-xl bg-surface-container flex items-center justify-between gap-space-sm">
-<div class="flex items-center gap-space-sm min-w-0">
-<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-secondary text-[20px]">call</span>
-</div>
-<div class="min-w-0">
-<span class="font-label-code text-label-code text-on-surface-variant">Teléfono / WhatsApp</span>
-<p class="font-code-inline text-code-inline text-on-surface truncate">+58 412 5733808</p>
-</div>
-</div>
-<a class="px-3 py-1.5 rounded-lg bg-secondary text-on-secondary hover:bg-secondary-container font-code-inline text-label-code font-semibold transition-all flex items-center gap-1 shrink-0" href="https://wa.me/584125733808" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[16px]">chat</span>
-<span>Escribir</span>
-</a>
-</div>
-<div class="flex flex-wrap gap-2 pt-1">
-<a class="flex-1 min-w-[140px] flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-surface-container text-on-surface hover:text-primary hover:bg-surface-container-high transition-all font-code-inline text-code-inline" href="https://github.com/merzamac" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[18px]">code</span>
-<span>@merzamac</span>
-</a>
-<a class="flex-1 min-w-[140px] flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-surface-container text-on-surface hover:text-primary hover:bg-surface-container-high transition-all font-code-inline text-code-inline" href="https://linkedin.com/in/merzamac" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[18px]">share</span>
-<span>in/merzamac</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Contact Right: Fast Interactive Mailto Form -->
-<div class="lg:col-span-6 bg-surface-container p-space-lg rounded-2xl flex flex-col gap-space-sm shadow-xl">
-<div class="flex items-center justify-between pb-1">
-<span class="font-code-inline text-code-inline text-primary font-bold flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px]">send</span>
-                Despachar Mensaje Directo
-              </span>
-<span class="font-label-code text-label-code text-on-surface-variant">Direct Mail API</span>
-</div>
-<form class="space-y-3" id="contact-form" onsubmit="handleDirectContact(event)">
-<div class="space-y-1">
-<label class="font-label-code text-label-code text-on-surface-variant" for="contact-name">Tu Nombre / Empresa</label>
-<input class="w-full px-3 py-2 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/40 font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary transition-all" id="contact-name" placeholder="Ej. Carlos Mendoza • CTO en TechCorp" required="" type="text"/>
-</div>
-<div class="space-y-1">
-<label class="font-label-code text-label-code text-on-surface-variant" for="contact-subject">Tipo de Oportunidad</label>
-<select class="w-full px-3 py-2 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary transition-all" id="contact-subject">
-<option value="Propuesta Laboral Backend / Fullstack">Propuesta Laboral (Backend / Fullstack)</option>
-<option value="Proyecto Consultoría Odoo 14 / 18">Proyecto / Consultoría Odoo 14 / 18</option>
-<option value="Automatización de Procesos RPA / ETL">Automatización de Procesos (RPA / ETL)</option>
-<option value="Otro Asunto">Otro Asunto Profesional</option>
-</select>
-</div>
-<div class="space-y-1">
-<label class="font-label-code text-label-code text-on-surface-variant" for="contact-message">Detalle del Proyecto o Requerimiento</label>
-<textarea class="w-full px-3 py-2 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/40 font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary transition-all resize-none" id="contact-message" placeholder="Describe brevemente el stack, el volumen de datos o los desafíos a resolver..." required="" rows="3"></textarea>
-</div>
-<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-code-inline text-code-inline font-bold transition-all shadow-md" type="submit">
-<span class="material-symbols-outlined text-[18px]">terminal</span>
-<span>Generar Despacho a moisesmerza@gmail.com</span>
-</button>
-</form>
-</div>
-</div>
-</div>
-</section>
-</div>
-<!-- MODAL: FastAPI Architecture Inspection -->
-<div class="fixed inset-0 z-50 hidden bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center p-gutter" id="modal-fastapi">
-<div class="bg-surface-container-low max-w-2xl w-full rounded-2xl p-space-lg shadow-2xl flex flex-col gap-space-md">
-<div class="flex items-start justify-between">
-<div>
-<span class="font-label-code text-label-code text-primary uppercase">// ARQUITECTURA DE SOFTWARE</span>
-<h3 class="font-headline-md text-headline-md text-on-surface font-bold">FastAPI Content Engine: Contratos &amp; SQL Optimization</h3>
-</div>
-<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="toggleProjectModal('modal-fastapi')">
-<span class="material-symbols-outlined text-[20px]">close</span>
-</button>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container-lowest font-code-inline text-label-code text-on-surface-variant space-y-1 overflow-x-auto">
-<div class="text-secondary"># SQLAlchemy 2.0 selectinload anti N+1 query:</div>
-<div class="text-on-surface">stmt = (</div>
-<div class="pl-4 text-primary">select(Article)</div>
-<div class="pl-4 text-on-surface">.options(selectinload(Article.author), joinedload(Article.category))</div>
-<div class="pl-4 text-on-surface">.where(Article.is_published.is_(True))</div>
-<div class="pl-4 text-on-surface">.offset(page * limit).limit(limit)</div>
-<div class="text-on-surface">)</div>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        El motor implementa inyección de dependencias estricta para sesiones asíncronas de PostgreSQL, esquemas de validación dual con Pydantic v2 (para sanitización de entrada y serialización de salida sin filtrar campos sensibles) y control de transacciones con rollback automático en middlewares.
-      </p>
-<div class="flex justify-end gap-2 pt-2">
-<button class="px-4 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-code-inline text-code-inline" onclick="toggleProjectModal('modal-fastapi')">
-          Cerrar Inspector
-        </button>
-</div>
-</div>
-</div>
-<!-- MODAL: Django Architecture Inspection -->
-<div class="fixed inset-0 z-50 hidden bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center p-gutter" id="modal-django">
-<div class="bg-surface-container-low max-w-2xl w-full rounded-2xl p-space-lg shadow-2xl flex flex-col gap-space-md">
-<div class="flex items-start justify-between">
-<div>
-<span class="font-label-code text-label-code text-secondary uppercase">// ARQUITECTURA DE SOFTWARE</span>
-<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Enterprise Employee System: CBV &amp; MTV</h3>
-</div>
-<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="toggleProjectModal('modal-django')">
-<span class="material-symbols-outlined text-[20px]">close</span>
-</button>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container-lowest font-code-inline text-label-code text-on-surface-variant space-y-1 overflow-x-auto">
-<div class="text-secondary"># Django CBV form validation &amp; transaction:</div>
-<div class="text-on-surface"><span class="text-primary">class</span> EmployeeCreateView(LoginRequiredMixin, CreateView):</div>
-<div class="pl-4 text-on-surface">model = Employee</div>
-<div class="pl-4 text-on-surface">form_class = EmployeeForm</div>
-<div class="pl-4 text-on-surface"><span class="text-primary">def</span> form_valid(self, form):</div>
-<div class="pl-8 text-on-surface">with transaction.atomic():</div>
-<div class="pl-12 text-tertiary"># Cálculo automático de antigüedad y centro de nómina</div>
-<div class="pl-12 text-on-surface">return super().form_valid(form)</div>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        Configuración desacoplada en tres entornos (<code class="text-secondary font-code-inline">base.py, local.py, production.py</code>), consultas agregadas optimizadas sobre la base de datos PostgreSQL y control de acceso granular por roles con mixins de seguridad.
-      </p>
-<div class="flex justify-end gap-2 pt-2">
-<button class="px-4 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-code-inline text-code-inline" onclick="toggleProjectModal('modal-django')">
-          Cerrar Inspector
-        </button>
-</div>
-</div>
-</div>
-<!-- MODAL: Retail POS Realtime Inspection -->
-<div class="fixed inset-0 z-50 hidden bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center p-gutter" id="modal-retail">
-<div class="bg-surface-container-low max-w-2xl w-full rounded-2xl p-space-lg shadow-2xl flex flex-col gap-space-md">
-<div class="flex items-start justify-between">
-<div>
-<span class="font-label-code text-label-code text-tertiary uppercase">// ARQUITECTURA DE SOFTWARE</span>
-<h3 class="font-headline-md text-headline-md text-on-surface font-bold">POS Middleware: NestJS Realtime &amp; Odoo Gateway</h3>
-</div>
-<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="toggleProjectModal('modal-retail')">
-<span class="material-symbols-outlined text-[20px]">close</span>
-</button>
-</div>
-<div class="p-space-md rounded-xl bg-surface-container-lowest font-code-inline text-label-code text-on-surface-variant space-y-1 overflow-x-auto">
-<div class="text-secondary">// NestJS WebSocket Gateway event pipeline:</div>
-<div class="text-on-surface">@WebSocketGateway({ cors: true })</div>
-<div class="text-on-surface"><span class="text-primary">export class</span> InventoryEventsGateway {</div>
-<div class="pl-4 text-on-surface">@SubscribeMessage('sync_stock_checkout')</div>
-<div class="pl-4 text-on-surface"><span class="text-primary">async</span> handleOrder(@MessageBody() payload: CartPayloadDto) {</div>
-<div class="pl-8 text-tertiary">// Emite a colas sin colapsar el front de ventas</div>
-<div class="pl-8 text-on-surface">return this.queueService.dispatchToOdoo(payload);</div>
-<div class="pl-4 text-on-surface">}</div>
-<div class="text-on-surface">}</div>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-        El servicio mantiene un caché en caliente de tasas de cambio del Banco Central y precios vigentes. Si Odoo se encuentra en un backup o proceso pesado, las cajas siguen facturando sin interrupción mediante sincronización eventual confirmada.
-      </p>
-<div class="flex justify-end gap-2 pt-2">
-<button class="px-4 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-code-inline text-code-inline" onclick="toggleProjectModal('modal-retail')">
-          Cerrar Inspector
-        </button>
-</div>
-</div>
-</div>
-<!-- Inline Micro-interactions Script -->
+        <p>Resolución de cuellos de botella en producción, desacoplamiento de ERPs y procesamiento masivo de datos.</p>
+      </div>
+      <div class="jobs">
+        <article class="job reveal">
+          <div class="job-head">
+            <div>
+              <h3>Desarrollador Fullstack &amp; Odoo</h3>
+              <span class="company">Grupo Valcro</span>
+            </div>
+            <span class="dates">Junio 2026 – Septiembre 2026</span>
+          </div>
+          <ul>
+            <li>Diseñé y construí la plataforma multiempresa de inventario y compras (Venezuela/Colombia) con NestJS 11, TypeORM, PostgreSQL y React 19, implementando RBAC, JWT y documentación Swagger/OpenAPI.</li>
+            <li>Refactoricé el módulo de compras hacia Clean Architecture con DTOs y validadores estrictos (class-validator), garantizando integridad en cálculo de totales y eliminando duplicidades.</li>
+            <li>Desarrollé un middleware en NestJS con WebSockets (Socket.IO) para el POS de Odoo 14, desacoplando la sincronización de stock y catálogo para eliminar bloqueos de caja en horas pico.</li>
+            <li>Personalicé Odoo 14 y 18: integración del método de pago Cashea y control diario de caja, corrección fiscal del libro de compras y notas de crédito, y extracción modular de reportes X/Z.</li>
+          </ul>
+        </article>
+        <article class="job reveal">
+          <div class="job-head">
+            <div>
+              <h3>Líder de Desarrollo RPA &amp; Automatización</h3>
+              <span class="company">Sempiterno Group</span>
+            </div>
+            <span class="dates">Abril 2025 – Mayo 2026</span>
+          </div>
+          <ul>
+            <li>Lideré el desarrollo de motores ETL en Python capaces de procesar +300.000 registros mediante streaming/chunking (Polars/FastExcel), mitigando desbordamientos de memoria en producción.</li>
+            <li>Construí 'pyaconsys' y 'concar_sql_wrapper', paquetes Python internos que interactúan programáticamente con sistemas contables cerrados de escritorio vía uiautomation, pywinauto y OCR.</li>
+            <li>Automaticé la conciliación bancaria multimoneda implementando normalización de glosas con coincidencia difusa (fuzzy matching) y notificaciones automáticas del estado de ejecución.</li>
+            <li>Estandaricé las prácticas del equipo mediante tipado estricto con mypy, empaquetado y dependencias con PDM, y suites de pruebas unitarias automatizadas con pytest.</li>
+          </ul>
+        </article>
+        <article class="job reveal">
+          <div class="job-head">
+            <div>
+              <h3>Especialista de Infraestructura y Soporte TI</h3>
+              <span class="company">Ceproalarm</span>
+            </div>
+            <span class="dates">Septiembre 2023 – Mayo 2025</span>
+          </div>
+          <ul>
+            <li>Ejecuté la virtualización de servidores físicos con Proxmox VE, optimizando el rendimiento, la redundancia y el consumo de recursos de los servicios internos.</li>
+            <li>Administré servidores Linux (Ubuntu Server), esquemas de redes y respaldos automáticos, asegurando la continuidad operativa y soporte a plataformas de rastreo GPS.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="sec" id="proyectos">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="kicker">03 // Arquitectura &amp; código</span>
+          <h2>Proyectos de Desarrollo Backend &amp; Software</h2>
+        </div>
+        <p>Cuatro piezas representativas de arquitectura, datos y automatización.</p>
+      </div>
+      <div class="grid grid-2">
+        <article class="card project reveal">
+          <div class="project-top"><span class="stack s-blue">FastAPI · Production Ready</span><span class="material-symbols-outlined">api</span></div>
+          <h3>RESTful Content Engine API</h3>
+          <p>API REST desarrollada con separación por capas (Router, Schema, Repositorio), validación con Pydantic v2 y SQLAlchemy 2.0. Incluye paginación server-side, ordenamiento dinámico, filtrado multi-tag y optimización de consultas con carga ansiosa (joinedload/selectinload) para mitigar el problema N+1, con control transaccional y rollback.</p>
+          <div class="chips"><span class="chip">FastAPI</span><span class="chip">SQLAlchemy 2.0</span><span class="chip">PostgreSQL</span><span class="chip">Pydantic v2</span></div>
+          <div class="links"><a href="https://github.com/merzamac/FastAPIEducation" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">github</span> ver repositorio</a></div>
+        </article>
+        <article class="card project reveal">
+          <div class="project-top"><span class="stack s-green">Django 4.2 · MTV</span><span class="material-symbols-outlined">corporate_fare</span></div>
+          <h3>Enterprise Employee Management System</h3>
+          <p>Sistema web modular basado en arquitectura MTV y apps reutilizables con Django 4.2. Implementa Class-Based Views genéricas, formularios con validaciones avanzadas en form_valid, configuración desacoplada por entornos (base/local/production) y gestión relacional de personal por departamentos.</p>
+          <div class="chips"><span class="chip">Django 4.2</span><span class="chip">PostgreSQL</span><span class="chip">CBV</span><span class="chip">MTV</span></div>
+          <div class="links"><a href="https://github.com/merzamac/educationDjango" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">github</span> ver repositorio</a></div>
+        </article>
+        <article class="card project reveal">
+          <div class="project-top"><span class="stack s-yellow">Python · Alto rendimiento</span><span class="material-symbols-outlined">table_view</span></div>
+          <h3>High-Throughput Accounting ETL Engine</h3>
+          <p>Motor ETL de alto rendimiento con procesamiento por streaming/chunking (bloques de 10k a 50k registros), validación de reglas de negocio y unificación de series contables por centro de costos.</p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Polars</span><span class="chip">PyArrow</span></div>
+        </article>
+        <article class="card project reveal">
+          <div class="project-top"><span class="stack s-red">Python · RPA</span><span class="material-symbols-outlined">desktop_windows</span></div>
+          <h3>Desktop ERP Automation Suite</h3>
+          <p>Librerías Python modulares desarrolladas bajo Clean Architecture para interactuar e inyectar asientos contables en software de escritorio sin APIs nativas, integrando visión computacional y OCR.</p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">uiautomation</span><span class="chip">OCR</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section class="sec" id="habilidades">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="kicker">04 // Stack técnico</span>
+          <h2>Habilidades Técnicas</h2>
+        </div>
+        <p>Lenguajes, backend, Odoo, RPA, datos y DevOps.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card skill reveal">
+          <h3><span class="material-symbols-outlined">code</span> Lenguajes</h3>
+          <div class="chips"><span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">XML</span><span class="chip">HTML5/CSS3</span></div>
+        </article>
+        <article class="card skill reveal">
+          <h3><span class="material-symbols-outlined">dns</span> Backend &amp; APIs</h3>
+          <div class="chips"><span class="chip">FastAPI</span><span class="chip">Django</span><span class="chip">NestJS</span><span class="chip">SQLAlchemy 2.0</span><span class="chip">TypeORM</span><span class="chip">PostgreSQL</span><span class="chip">Pydantic v2</span><span class="chip">RESTful APIs</span><span class="chip">Swagger/OpenAPI</span><span class="chip">WebSockets (Socket.IO)</span><span class="chip">JWT</span><span class="chip">RBAC</span></div>
+        </article>
+        <article class="card skill reveal">
+          <h3><span class="material-symbols-outlined">web</span> Frontend</h3>
+          <div class="chips"><span class="chip">React</span><span class="chip">Tailwind CSS</span><span class="chip">React Router</span></div>
+        </article>
+        <article class="card skill reveal">
+          <h3><span class="material-symbols-outlined">point_of_sale</span> Ecosistema Odoo</h3>
+          <div class="chips"><span class="chip">Odoo 14 &amp; 18</span><span class="chip">ORM</span><span class="chip">Vistas XML</span><span class="chip">QWeb</span><span class="chip">Wizards</span><span class="chip">Seguridad</span><span class="chip">POS/TPV</span><span class="chip">Facturación</span><span class="chip">Inventario Multi-almacén</span><span class="chip">Localización VE</span><span class="chip">Multimoneda</span><span class="chip">Retenciones</span><span class="chip">Libro de compras</span></div>
+        </article>
+        <article class="card skill reveal">
+          <h3><span class="material-symbols-outlined">smart_toy</span> RPA &amp; Automatización</h3>
+          <div class="chips"><span class="chip">uiautomation</span><span class="chip">pywinauto</span><span class="chip">pyautogui</span><span class="chip">OCR (pytesseract, OpenCV)</span><span class="chip">Web Scraping</span><span class="chip">CONCAR SQL</span><span class="chip">Aconsys</span></div>
+        </article>
+        <article class="card skill reveal">
+          <h3><span class="material-symbols-outlined">database</span> Ingeniería de Datos / ETL</h3>
+          <div class="chips"><span class="chip">Polars</span><span class="chip">pandas</span><span class="chip">fastexcel</span><span class="chip">openpyxl</span><span class="chip">pyarrow</span><span class="chip">Streaming/chunking</span></div>
+        </article>
+        <article class="card skill reveal">
+          <h3><span class="material-symbols-outlined">verified</span> Calidad &amp; DevOps</h3>
+          <div class="chips"><span class="chip">Clean Architecture</span><span class="chip">Repository Pattern</span><span class="chip">PDM</span><span class="chip">Git</span><span class="chip">GitLab CI</span><span class="chip">Docker</span><span class="chip">Linux (Ubuntu Server)</span><span class="chip">Proxmox VE</span><span class="chip">pytest</span><span class="chip">Jest</span><span class="chip">mypy</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCACIÓN -->
+  <section class="sec" id="educacion">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="kicker">05 // Formación</span>
+          <h2>Educación &amp; Certificaciones</h2>
+        </div>
+        <p>Formación universitaria y especializaciones técnicas oficiales.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card edu reveal">
+          <span class="badge">9no semestre</span>
+          <h3>Licenciatura en Computación</h3>
+          <p class="where">Universidad de Carabobo</p>
+          <p class="detail">Grado universitario en curso.</p>
+        </article>
+        <article class="card edu reveal">
+          <span class="badge">May 2026</span>
+          <h3>IBM Data Analyst Specialization</h3>
+          <p class="where">IBM / Coursera</p>
+          <p class="detail">Análisis de datos, SQL avanzado y Python.</p>
+        </article>
+        <article class="card edu reveal">
+          <span class="badge">Ene 2026</span>
+          <h3>Docker Profesional &amp; DevOps</h3>
+          <p class="where">Código Facilito</p>
+          <p class="detail">Contenedores y prácticas DevOps.</p>
+        </article>
+        <article class="card edu reveal">
+          <span class="badge">2025</span>
+          <h3>Desarrollo Backend con FastAPI &amp; Odoo v17/v18</h3>
+          <p class="where">Udemy</p>
+          <p class="detail">Especialización para desarrolladores.</p>
+        </article>
+        <article class="card edu reveal">
+          <span class="badge">Idiomas</span>
+          <h3>Español e Inglés</h3>
+          <p class="where">Español: Nativo</p>
+          <p class="detail">Inglés: Lectura técnica y documentación avanzada (Certificado CEVAC - Centro Venezolano Americano de Carabobo).</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="sec" id="contacto">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="kicker">06 // Contacto</span>
+          <h2>Hablemos</h2>
+        </div>
+        <p>Canales directos de contacto.</p>
+      </div>
+      <div class="contact-grid">
+        <a class="ccard reveal" href="mailto:moisesmerza@gmail.com">
+          <span class="material-symbols-outlined">mail</span>
+          <b>Email</b><span>moisesmerza@gmail.com</span>
+        </a>
+        <a class="ccard reveal" href="tel:+584125733808">
+          <span class="material-symbols-outlined">call</span>
+          <b>Teléfono</b><span>+58 4125733808</span>
+        </a>
+        <a class="ccard reveal" href="https://linkedin.com/in/merzamac" rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined">share</span>
+          <b>LinkedIn</b><span>linkedin.com/in/merzamac</span>
+        </a>
+        <a class="ccard reveal" href="https://github.com/merzamac" rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined">code</span>
+          <b>GitHub</b><span>github.com/merzamac</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="brand-dot">© 2026 Moisés Merza · merzamac.github.io</span>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <span>Desplegado en GitHub Pages</span>
+  </div>
+</footer>
+
 <script>
-    // Tab Filter Logic
-    function applyFilter(filter) {
-      document.querySelectorAll('.portfolio-section').forEach(sec => {
-        const show = filter === 'all' || sec.getAttribute('data-section') === filter;
-        sec.style.display = show ? 'block' : 'none';
-        if (show && filter !== 'all') sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
-    document.querySelectorAll('.tab-trigger').forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Reset all buttons style
-        document.querySelectorAll('.tab-trigger').forEach(b => {
-          b.className = 'tab-trigger px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-code-inline text-code-inline flex items-center gap-1.5 transition-all';
-        });
-        // Activate current button
-        btn.className = 'tab-trigger px-3 py-1.5 rounded-lg text-primary bg-surface-container-high font-code-inline text-code-inline flex items-center gap-1.5 transition-all';
-        applyFilter(btn.getAttribute('data-filter'));
+(function () {
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* progress bar + header shadow */
+  var bar = document.getElementById('progressBar');
+  var header = document.getElementById('header');
+  function onScroll() {
+    var d = document.documentElement;
+    var p = d.scrollTop / (d.scrollHeight - d.clientHeight || 1);
+    bar.style.transform = 'scaleX(' + p + ')';
+    header.classList.toggle('scrolled', d.scrollTop > 8);
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* reveal on scroll */
+  var revealObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+  /* scrollspy */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+  var spyObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      navLinks.forEach(function (a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
       });
     });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  navLinks.forEach(function (a) {
+    var s = document.querySelector(a.getAttribute('href'));
+    if (s) spyObs.observe(s);
+  });
 
-    // Header/footer nav links reuse the section filter
-    document.querySelectorAll('[data-path]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const path = link.getAttribute('data-path');
-        if (path === 'sobre-mi') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-        const tab = document.querySelector('.tab-trigger[data-filter="' + path + '"]');
-        if (tab) { tab.click(); return; }
-        applyFilter(path);
-      });
+  /* typewriter tagline */
+  var tw = document.getElementById('tagline');
+  var full = tw.textContent;
+  if (!RM) {
+    tw.textContent = '';
+    tw.classList.add('typing');
+    var i = 0;
+    var timer = setInterval(function () {
+      tw.textContent = full.slice(0, ++i);
+      if (i >= full.length) { clearInterval(timer); tw.classList.remove('typing'); }
+    }, 32);
+    addEventListener('beforeprint', function () {
+      clearInterval(timer); tw.textContent = full; tw.classList.remove('typing');
     });
+  }
 
-    // Copy Email Feedback Handlers
-    function setupCopyEmail(btnId, feedbackId, textToCopy) {
-      const btn = document.getElementById(btnId);
-      const feedback = document.getElementById(feedbackId);
-      if (!btn || !feedback) return;
-
-      btn.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(textToCopy);
-          const original = feedback.textContent;
-          feedback.textContent = '¡Copiado al Portapapeles!';
-          feedback.classList.add('text-secondary');
-          setTimeout(() => {
-            feedback.textContent = original;
-            feedback.classList.remove('text-secondary');
-          }, 2200);
-        } catch (err) {
-          window.location.href = `mailto:${textToCopy}`;
-        }
-      });
-    }
-
-    setupCopyEmail('copy-email-top-btn', 'copy-top-feedback', 'moisesmerza@gmail.com');
-    setupCopyEmail('copy-email-card-btn', 'copy-card-feedback', 'moisesmerza@gmail.com');
-
-    // Project Modals Toggle
-    function toggleProjectModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (!modal) return;
-      if (modal.classList.contains('hidden')) {
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      } else {
-        modal.classList.add('hidden');
-        document.body.style.overflow = 'auto';
+  /* animated counters */
+  function fmt(n) { return n.toLocaleString('es-VE'); }
+  var countObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      countObs.unobserve(e.target);
+      var el = e.target;
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var prefix = el.getAttribute('data-prefix') || '';
+      if (RM) return;
+      var start = null, dur = 1400;
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var v = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        el.textContent = prefix + fmt(v);
+        if (p < 1) requestAnimationFrame(step);
       }
-    }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('[data-count]').forEach(function (el) { countObs.observe(el); });
 
-    // Direct Mail Dispatcher
-    function handleDirectContact(e) {
-      e.preventDefault();
-      const name = document.getElementById('contact-name').value;
-      const subject = document.getElementById('contact-subject').value;
-      const message = document.getElementById('contact-message').value;
-      
-      const fullSubject = encodeURIComponent(`[Portafolio Dev] ${subject} - ${name}`);
-      const fullBody = encodeURIComponent(`Hola Moisés,\n\nSoy ${name}.\n\nRequerimiento / Propuesta:\n${message}\n\nEnviado desde tu portafolio.`);
-      
-      window.location.href = `mailto:moisesmerza@gmail.com?subject=${fullSubject}&body=${fullBody}`;
-    }
-  </script>
-</div></main><footer class="w-full bg-surface-container-lowest py-space-xl shadow-[0_-1px_8px_rgba(0,0,0,0.2)]"><div class="max-w-[1200px] mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col items-center md:items-start gap-1"><div class="flex items-center gap-2 font-code-inline text-code-inline text-on-surface"><span class="w-2 h-2 rounded-full bg-secondary"></span><span>merzamac.github.io</span><span class="text-on-surface-variant font-label-code text-label-code">v2.4.0</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">© 2026 Moisés Merza. Arquitectura Backend, ERP Odoo &amp; Automatización.</p></div><div class="flex flex-wrap items-center justify-center gap-space-md"><a class="font-code-inline text-code-inline text-on-surface-variant hover:text-primary transition-colors" data-path="sobre-mi" href="#">Inicio</a><a class="font-code-inline text-code-inline text-on-surface-variant hover:text-primary transition-colors" data-path="experiencia" href="#">Trayectoria</a><a class="font-code-inline text-code-inline text-on-surface-variant hover:text-primary transition-colors" data-path="proyectos" href="#">Arquitectura</a><a class="font-code-inline text-code-inline text-on-surface-variant hover:text-primary transition-colors" data-path="contacto" href="#">PGP / Contacto</a></div><div class="flex items-center gap-space-xs text-on-surface-variant font-label-code text-label-code"><span class="material-symbols-outlined text-[16px] text-secondary">cloud_done</span><span>Desplegado en GitHub Pages</span></div></div></footer></body></html>
+  /* button ripple */
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest('.btn');
+    if (!b || RM) return;
+    var r = document.createElement('span');
+    r.className = 'ripple';
+    var rect = b.getBoundingClientRect();
+    var size = Math.max(rect.width, rect.height);
+    r.style.width = r.style.height = size + 'px';
+    r.style.left = (ev.clientX - rect.left - size / 2) + 'px';
+    r.style.top = (ev.clientY - rect.top - size / 2) + 'px';
+    b.appendChild(r);
+    setTimeout(function () { r.remove(); }, 600);
+  });
+})();
+</script>
+</body>
+</html>
