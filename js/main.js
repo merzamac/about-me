@@ -89,4 +89,29 @@
     b.appendChild(r);
     setTimeout(function () { r.remove(); }, 600);
   });
+  /* forced download for a[download] (browsers ignore the attribute on file://) */
+  document.querySelectorAll('a[download]').forEach(function (a) {
+    a.addEventListener('click', function (ev) {
+      var href = a.getAttribute('href');
+      ev.preventDefault();
+      fetch(href)
+        .then(function (res) {
+          if (!res.ok) throw new Error(res.status);
+          return res.blob();
+        })
+        .then(function (blob) {
+          var url = URL.createObjectURL(blob);
+          var t = document.createElement('a');
+          t.href = url;
+          t.download = href.split('/').pop();
+          document.body.appendChild(t);
+          t.click();
+          t.remove();
+          setTimeout(function () { URL.revokeObjectURL(url); }, 15000);
+        })
+        .catch(function () {
+          location.href = href;
+        });
+    });
+  });
 })();
