@@ -89,6 +89,53 @@
     b.appendChild(r);
     setTimeout(function () { r.remove(); }, 600);
   });
+
+  /* skills accordion (one open at a time) */
+  var accHeads = document.querySelectorAll('.acc-head');
+  accHeads.forEach(function (h) {
+    h.addEventListener('click', function () {
+      var item = h.parentElement;
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.acc-item.open').forEach(function (o) {
+        o.classList.remove('open');
+        o.querySelector('.acc-head').setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        h.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* trayectoria tabs */
+  document.querySelectorAll('.tab').forEach(function (t) {
+    t.addEventListener('click', function () {
+      document.querySelectorAll('.tab').forEach(function (x) {
+        x.classList.remove('active');
+        x.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-pane').forEach(function (p) { p.classList.remove('open'); });
+      t.classList.add('active');
+      t.setAttribute('aria-selected', 'true');
+      document.getElementById(t.getAttribute('data-tab')).classList.add('open');
+    });
+  });
+
+  /* projects slider arrows */
+  var track = document.getElementById('sliderTrack');
+  if (track) {
+    var step = function () {
+      var first = track.firstElementChild;
+      return (first ? first.offsetWidth : track.clientWidth) + 16;
+    };
+    document.querySelectorAll('.slider-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var dir = b.classList.contains('next') ? 1 : -1;
+        track.scrollBy({ left: dir * step(), behavior: RM ? 'auto' : 'smooth' });
+      });
+    });
+  }
+
   /* forced download for a[download] (browsers ignore the attribute on file://) */
   document.querySelectorAll('a[download]').forEach(function (a) {
     a.addEventListener('click', function (ev) {

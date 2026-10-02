@@ -25,12 +25,12 @@
 <header id="header">
   <div class="wrap bar">
     <a class="brand" href="#inicio"><span class="logo">M</span> Moisés Merza</a>
-    <nav class="mainnav" id="mainnav" aria-label="Secciones">
+    <nav class="mainnav" aria-label="Secciones">
+      <a href="#inicio" data-nav>Inicio</a>
       <a href="#perfil" data-nav>Perfil</a>
-      <a href="#experiencia" data-nav>Experiencia</a>
-      <a href="#proyectos" data-nav>Proyectos</a>
       <a href="#habilidades" data-nav>Habilidades</a>
-      <a href="#educacion" data-nav>Educación</a>
+      <a href="#trayectoria" data-nav>Trayectoria</a>
+      <a href="#proyectos" data-nav>Proyectos</a>
       <a href="#contacto" data-nav>Contacto</a>
     </nav>
     <div class="actions">
@@ -41,37 +41,28 @@
   </div>
 </header>
 
-<main id="inicio">
+<main>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- HOME -->
+  <section class="hero" id="inicio">
     <div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
-    <div class="wrap hero-grid">
-      <div class="hero-top reveal">
-        <div class="avatar"><span>M</span></div>
-        <div>
-          <div class="pill" style="margin-bottom:10px"><span class="material-symbols-outlined" style="font-size:16px;color:var(--blue)">location_on</span> Venezuela</div>
-          <h1>Moisés Merza</h1>
-          <span class="tagline" id="tagline">Software Developer | Automation Specialist | Data Analytics &amp; SQL</span>
+    <div class="wrap home-grid">
+      <div class="home-social reveal">
+        <a aria-label="Email" href="mailto:moisesmerza@gmail.com"><span class="material-symbols-outlined">mail</span></a>
+        <a aria-label="LinkedIn" href="https://linkedin.com/in/merzamac" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">share</span></a>
+        <a aria-label="GitHub" href="https://github.com/merzamac" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">code</span></a>
+      </div>
+      <div class="home-text">
+        <div class="home-photo reveal"><div class="avatar lg"><span>M</span></div></div>
+        <div class="pill reveal"><span class="material-symbols-outlined" style="font-size:16px;color:var(--blue)">location_on</span> Venezuela</div>
+        <h1 class="reveal">Moisés Merza</h1>
+        <span class="tagline reveal" id="tagline">Software Developer | Automation Specialist | Data Analytics &amp; SQL</span>
+        <p class="lead reveal">Desarrollador de Software con experiencia integral en desarrollo Backend (Python, NestJS), personalización profunda de ERPs (Odoo 14 y 18) y automatización de procesos críticos (RPA / ETL).</p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-blue" href="mailto:moisesmerza@gmail.com"><span class="material-symbols-outlined" style="font-size:18px">mail</span> Escríbeme</a>
+          <a class="btn btn-ghost" href="Moises_Merza_CV.pdf" download><span class="material-symbols-outlined" style="font-size:18px">description</span> Descargar CV (PDF)</a>
         </div>
-      </div>
-      <p class="lead reveal">Desarrollador de Software con experiencia integral en desarrollo Backend (Python, NestJS), personalización profunda de ERPs (Odoo 14 y 18) y automatización de procesos críticos (RPA / ETL).</p>
-      <div class="contact-row reveal">
-        <a href="mailto:moisesmerza@gmail.com"><span class="material-symbols-outlined">mail</span> moisesmerza@gmail.com</a>
-        <a href="tel:+584125733808"><span class="material-symbols-outlined">call</span> +58 4125733808</a>
-        <a href="https://linkedin.com/in/merzamac" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">share</span> linkedin.com/in/merzamac</a>
-        <a href="https://github.com/merzamac" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">code</span> github.com/merzamac</a>
-      </div>
-      <div class="hero-cta reveal">
-        <a class="btn btn-blue" href="mailto:moisesmerza@gmail.com"><span class="material-symbols-outlined" style="font-size:18px">mail</span> Escríbeme</a>
-        <a class="btn btn-ghost" href="Moises_Merza_CV.pdf" download><span class="material-symbols-outlined" style="font-size:18px">description</span> Descargar CV (PDF)</a>
-      </div>
-
-      <div class="stats">
-        <div class="stat reveal"><b data-count="300000" data-prefix="+">+300.000</b><span>Registros procesados por ETL</span></div>
-        <div class="stat reveal"><b data-count="3">3</b><span>Experiencias profesionales</span></div>
-        <div class="stat reveal"><b data-count="4">4</b><span>Proyectos de desarrollo</span></div>
-        <div class="stat reveal"><b data-count="2">2</b><span>Versiones de Odoo (14 y 18)</span></div>
+        <a class="scroll-down" href="#perfil"><span class="material-symbols-outlined">arrow_downward</span> Desplazar</a>
       </div>
     </div>
   </section>
@@ -80,113 +71,20 @@
   <section class="sec" id="perfil">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div>
-          <span class="kicker">01 // Perfil profesional</span>
-          <h2>Perfil</h2>
-        </div>
-        <p>Experiencia integral en backend, ERP y automatización de procesos críticos.</p>
+        <h2>Perfil</h2>
+        <p class="sub">Experiencia integral en backend, ERP y automatización de procesos críticos.</p>
       </div>
       <div class="card reveal">
         <p class="profile-text">Desarrollador de Software con experiencia integral en desarrollo Backend (Python, NestJS), personalización profunda de ERPs (Odoo 14 y 18) y automatización de procesos críticos (RPA / ETL). Especialista en diseño de arquitecturas escalables (Clean Architecture, Repository Pattern), optimización de flujos de alta concurrencia (procesamiento masivo de +300.000 registros con Polars) y desacoplamiento de servicios. Capacidad demostrada resolviendo cuellos de botella en operaciones financieras, contables y retail multiempresa.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCIA -->
-  <section class="sec" id="experiencia">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div>
-          <span class="kicker">02 // Trayectoria</span>
-          <h2>Experiencia Laboral</h2>
-        </div>
-        <p>Resolución de cuellos de botella en producción, desacoplamiento de ERPs y procesamiento masivo de datos.</p>
+      <div class="stats">
+        <div class="stat reveal"><b data-count="300000" data-prefix="+">+300.000</b><span>Registros procesados por ETL</span></div>
+        <div class="stat reveal"><b data-count="3">3</b><span>Experiencias profesionales</span></div>
+        <div class="stat reveal"><b data-count="4">4</b><span>Proyectos de desarrollo</span></div>
+        <div class="stat reveal"><b data-count="2">2</b><span>Versiones de Odoo (14 y 18)</span></div>
       </div>
-      <div class="jobs">
-        <article class="job reveal">
-          <div class="job-head">
-            <div>
-              <h3>Desarrollador Fullstack &amp; Odoo</h3>
-              <span class="company">Grupo Valcro</span>
-            </div>
-            <span class="dates">Junio 2026 – Septiembre 2026</span>
-          </div>
-          <ul>
-            <li>Diseñé y construí la plataforma multiempresa de inventario y compras (Venezuela/Colombia) con NestJS 11, TypeORM, PostgreSQL y React 19, implementando RBAC, JWT y documentación Swagger/OpenAPI.</li>
-            <li>Refactoricé el módulo de compras hacia Clean Architecture con DTOs y validadores estrictos (class-validator), garantizando integridad en cálculo de totales y eliminando duplicidades.</li>
-            <li>Desarrollé un middleware en NestJS con WebSockets (Socket.IO) para el POS de Odoo 14, desacoplando la sincronización de stock y catálogo para eliminar bloqueos de caja en horas pico.</li>
-            <li>Personalicé Odoo 14 y 18: integración del método de pago Cashea y control diario de caja, corrección fiscal del libro de compras y notas de crédito, y extracción modular de reportes X/Z.</li>
-          </ul>
-        </article>
-        <article class="job reveal">
-          <div class="job-head">
-            <div>
-              <h3>Líder de Desarrollo RPA &amp; Automatización</h3>
-              <span class="company">Sempiterno Group</span>
-            </div>
-            <span class="dates">Abril 2025 – Mayo 2026</span>
-          </div>
-          <ul>
-            <li>Lideré el desarrollo de motores ETL en Python capaces de procesar +300.000 registros mediante streaming/chunking (Polars/FastExcel), mitigando desbordamientos de memoria en producción.</li>
-            <li>Construí 'pyaconsys' y 'concar_sql_wrapper', paquetes Python internos que interactúan programáticamente con sistemas contables cerrados de escritorio vía uiautomation, pywinauto y OCR.</li>
-            <li>Automaticé la conciliación bancaria multimoneda implementando normalización de glosas con coincidencia difusa (fuzzy matching) y notificaciones automáticas del estado de ejecución.</li>
-            <li>Estandaricé las prácticas del equipo mediante tipado estricto con mypy, empaquetado y dependencias con PDM, y suites de pruebas unitarias automatizadas con pytest.</li>
-          </ul>
-        </article>
-        <article class="job reveal">
-          <div class="job-head">
-            <div>
-              <h3>Especialista de Infraestructura y Soporte TI</h3>
-              <span class="company">Ceproalarm</span>
-            </div>
-            <span class="dates">Septiembre 2023 – Mayo 2025</span>
-          </div>
-          <ul>
-            <li>Ejecuté la virtualización de servidores físicos con Proxmox VE, optimizando el rendimiento, la redundancia y el consumo de recursos de los servicios internos.</li>
-            <li>Administré servidores Linux (Ubuntu Server), esquemas de redes y respaldos automáticos, asegurando la continuidad operativa y soporte a plataformas de rastreo GPS.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROYECTOS -->
-  <section class="sec" id="proyectos">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div>
-          <span class="kicker">03 // Arquitectura &amp; código</span>
-          <h2>Proyectos de Desarrollo Backend &amp; Software</h2>
-        </div>
-        <p>Cuatro piezas representativas de arquitectura, datos y automatización.</p>
-      </div>
-      <div class="grid grid-2">
-        <article class="card project reveal">
-          <div class="project-top"><span class="stack s-blue">FastAPI · Production Ready</span><span class="material-symbols-outlined">api</span></div>
-          <h3>RESTful Content Engine API</h3>
-          <p>API REST desarrollada con separación por capas (Router, Schema, Repositorio), validación con Pydantic v2 y SQLAlchemy 2.0. Incluye paginación server-side, ordenamiento dinámico, filtrado multi-tag y optimización de consultas con carga ansiosa (joinedload/selectinload) para mitigar el problema N+1, con control transaccional y rollback.</p>
-          <div class="chips"><span class="chip">FastAPI</span><span class="chip">SQLAlchemy 2.0</span><span class="chip">PostgreSQL</span><span class="chip">Pydantic v2</span></div>
-          <div class="links"><a href="https://github.com/merzamac/FastAPIEducation" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">github</span> ver repositorio</a></div>
-        </article>
-        <article class="card project reveal">
-          <div class="project-top"><span class="stack s-green">Django 4.2 · MTV</span><span class="material-symbols-outlined">corporate_fare</span></div>
-          <h3>Enterprise Employee Management System</h3>
-          <p>Sistema web modular basado en arquitectura MTV y apps reutilizables con Django 4.2. Implementa Class-Based Views genéricas, formularios con validaciones avanzadas en form_valid, configuración desacoplada por entornos (base/local/production) y gestión relacional de personal por departamentos.</p>
-          <div class="chips"><span class="chip">Django 4.2</span><span class="chip">PostgreSQL</span><span class="chip">CBV</span><span class="chip">MTV</span></div>
-          <div class="links"><a href="https://github.com/merzamac/educationDjango" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">github</span> ver repositorio</a></div>
-        </article>
-        <article class="card project reveal">
-          <div class="project-top"><span class="stack s-yellow">Python · Alto rendimiento</span><span class="material-symbols-outlined">table_view</span></div>
-          <h3>High-Throughput Accounting ETL Engine</h3>
-          <p>Motor ETL de alto rendimiento con procesamiento por streaming/chunking (bloques de 10k a 50k registros), validación de reglas de negocio y unificación de series contables por centro de costos.</p>
-          <div class="chips"><span class="chip">Python</span><span class="chip">Polars</span><span class="chip">PyArrow</span></div>
-        </article>
-        <article class="card project reveal">
-          <div class="project-top"><span class="stack s-red">Python · RPA</span><span class="material-symbols-outlined">desktop_windows</span></div>
-          <h3>Desktop ERP Automation Suite</h3>
-          <p>Librerías Python modulares desarrolladas bajo Clean Architecture para interactuar e inyectar asientos contables en software de escritorio sin APIs nativas, integrando visión computacional y OCR.</p>
-          <div class="chips"><span class="chip">Python</span><span class="chip">uiautomation</span><span class="chip">OCR</span></div>
-        </article>
+      <div class="about-cta reveal">
+        <a class="btn btn-blue" href="Moises_Merza_CV.pdf" download><span class="material-symbols-outlined" style="font-size:18px">description</span> Descargar CV (PDF)</a>
       </div>
     </div>
   </section>
@@ -195,87 +93,219 @@
   <section class="sec" id="habilidades">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div>
-          <span class="kicker">04 // Stack técnico</span>
-          <h2>Habilidades Técnicas</h2>
-        </div>
-        <p>Lenguajes, backend, Odoo, RPA, datos y DevOps.</p>
+        <h2>Habilidades Técnicas</h2>
+        <p class="sub">Lenguajes, backend, Odoo, RPA, datos y DevOps.</p>
       </div>
-      <div class="grid grid-3">
-        <article class="card skill reveal">
-          <h3><span class="material-symbols-outlined">code</span> Lenguajes</h3>
-          <div class="chips"><span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">XML</span><span class="chip">HTML5/CSS3</span></div>
-        </article>
-        <article class="card skill reveal">
-          <h3><span class="material-symbols-outlined">dns</span> Backend &amp; APIs</h3>
-          <div class="chips"><span class="chip">FastAPI</span><span class="chip">Django</span><span class="chip">NestJS</span><span class="chip">SQLAlchemy 2.0</span><span class="chip">TypeORM</span><span class="chip">PostgreSQL</span><span class="chip">Pydantic v2</span><span class="chip">RESTful APIs</span><span class="chip">Swagger/OpenAPI</span><span class="chip">WebSockets (Socket.IO)</span><span class="chip">JWT</span><span class="chip">RBAC</span></div>
-        </article>
-        <article class="card skill reveal">
-          <h3><span class="material-symbols-outlined">web</span> Frontend</h3>
-          <div class="chips"><span class="chip">React</span><span class="chip">Tailwind CSS</span><span class="chip">React Router</span></div>
-        </article>
-        <article class="card skill reveal">
-          <h3><span class="material-symbols-outlined">point_of_sale</span> Ecosistema Odoo</h3>
-          <div class="chips"><span class="chip">Odoo 14 &amp; 18</span><span class="chip">ORM</span><span class="chip">Vistas XML</span><span class="chip">QWeb</span><span class="chip">Wizards</span><span class="chip">Seguridad</span><span class="chip">POS/TPV</span><span class="chip">Facturación</span><span class="chip">Inventario Multi-almacén</span><span class="chip">Localización VE</span><span class="chip">Multimoneda</span><span class="chip">Retenciones</span><span class="chip">Libro de compras</span></div>
-        </article>
-        <article class="card skill reveal">
-          <h3><span class="material-symbols-outlined">smart_toy</span> RPA &amp; Automatización</h3>
-          <div class="chips"><span class="chip">uiautomation</span><span class="chip">pywinauto</span><span class="chip">pyautogui</span><span class="chip">OCR (pytesseract, OpenCV)</span><span class="chip">Web Scraping</span><span class="chip">CONCAR SQL</span><span class="chip">Aconsys</span></div>
-        </article>
-        <article class="card skill reveal">
-          <h3><span class="material-symbols-outlined">database</span> Ingeniería de Datos / ETL</h3>
-          <div class="chips"><span class="chip">Polars</span><span class="chip">pandas</span><span class="chip">fastexcel</span><span class="chip">openpyxl</span><span class="chip">pyarrow</span><span class="chip">Streaming/chunking</span></div>
-        </article>
-        <article class="card skill reveal">
-          <h3><span class="material-symbols-outlined">verified</span> Calidad &amp; DevOps</h3>
-          <div class="chips"><span class="chip">Clean Architecture</span><span class="chip">Repository Pattern</span><span class="chip">PDM</span><span class="chip">Git</span><span class="chip">GitLab CI</span><span class="chip">Docker</span><span class="chip">Linux (Ubuntu Server)</span><span class="chip">Proxmox VE</span><span class="chip">pytest</span><span class="chip">Jest</span><span class="chip">mypy</span></div>
-        </article>
+      <div class="acc">
+        <div class="acc-item reveal open">
+          <button aria-expanded="true" class="acc-head" type="button">
+            <span class="material-symbols-outlined ic">code</span>
+            <h3>Lenguajes</h3>
+            <span class="material-symbols-outlined chev">expand_more</span>
+          </button>
+          <div class="acc-body"><div class="chips"><span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">XML</span><span class="chip">HTML5/CSS3</span></div></div>
+        </div>
+        <div class="acc-item reveal">
+          <button aria-expanded="false" class="acc-head" type="button">
+            <span class="material-symbols-outlined ic">dns</span>
+            <h3>Backend &amp; APIs</h3>
+            <span class="material-symbols-outlined chev">expand_more</span>
+          </button>
+          <div class="acc-body"><div class="chips"><span class="chip">FastAPI</span><span class="chip">Django</span><span class="chip">NestJS</span><span class="chip">SQLAlchemy 2.0</span><span class="chip">TypeORM</span><span class="chip">PostgreSQL</span><span class="chip">Pydantic v2</span><span class="chip">RESTful APIs</span><span class="chip">Swagger/OpenAPI</span><span class="chip">WebSockets (Socket.IO)</span><span class="chip">JWT</span><span class="chip">RBAC</span></div></div>
+        </div>
+        <div class="acc-item reveal">
+          <button aria-expanded="false" class="acc-head" type="button">
+            <span class="material-symbols-outlined ic">web</span>
+            <h3>Frontend</h3>
+            <span class="material-symbols-outlined chev">expand_more</span>
+          </button>
+          <div class="acc-body"><div class="chips"><span class="chip">React</span><span class="chip">Tailwind CSS</span><span class="chip">React Router</span></div></div>
+        </div>
+        <div class="acc-item reveal">
+          <button aria-expanded="false" class="acc-head" type="button">
+            <span class="material-symbols-outlined ic">point_of_sale</span>
+            <h3>Ecosistema Odoo</h3>
+            <span class="material-symbols-outlined chev">expand_more</span>
+          </button>
+          <div class="acc-body"><div class="chips"><span class="chip">Odoo 14 &amp; 18</span><span class="chip">ORM</span><span class="chip">Vistas XML</span><span class="chip">QWeb</span><span class="chip">Wizards</span><span class="chip">Seguridad</span><span class="chip">POS/TPV</span><span class="chip">Facturación</span><span class="chip">Inventario Multi-almacén</span><span class="chip">Localización VE</span><span class="chip">Multimoneda</span><span class="chip">Retenciones</span><span class="chip">Libro de compras</span></div></div>
+        </div>
+        <div class="acc-item reveal">
+          <button aria-expanded="false" class="acc-head" type="button">
+            <span class="material-symbols-outlined ic">smart_toy</span>
+            <h3>RPA &amp; Automatización</h3>
+            <span class="material-symbols-outlined chev">expand_more</span>
+          </button>
+          <div class="acc-body"><div class="chips"><span class="chip">uiautomation</span><span class="chip">pywinauto</span><span class="chip">pyautogui</span><span class="chip">OCR (pytesseract, OpenCV)</span><span class="chip">Web Scraping</span><span class="chip">CONCAR SQL</span><span class="chip">Aconsys</span></div></div>
+        </div>
+        <div class="acc-item reveal">
+          <button aria-expanded="false" class="acc-head" type="button">
+            <span class="material-symbols-outlined ic">database</span>
+            <h3>Ingeniería de Datos / ETL</h3>
+            <span class="material-symbols-outlined chev">expand_more</span>
+          </button>
+          <div class="acc-body"><div class="chips"><span class="chip">Polars</span><span class="chip">pandas</span><span class="chip">fastexcel</span><span class="chip">openpyxl</span><span class="chip">pyarrow</span><span class="chip">Streaming/chunking</span></div></div>
+        </div>
+        <div class="acc-item reveal">
+          <button aria-expanded="false" class="acc-head" type="button">
+            <span class="material-symbols-outlined ic">verified</span>
+            <h3>Calidad &amp; DevOps</h3>
+            <span class="material-symbols-outlined chev">expand_more</span>
+          </button>
+          <div class="acc-body"><div class="chips"><span class="chip">Clean Architecture</span><span class="chip">Repository Pattern</span><span class="chip">PDM</span><span class="chip">Git</span><span class="chip">GitLab CI</span><span class="chip">Docker</span><span class="chip">Linux (Ubuntu Server)</span><span class="chip">Proxmox VE</span><span class="chip">pytest</span><span class="chip">Jest</span><span class="chip">mypy</span></div></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- EDUCACIÓN -->
-  <section class="sec" id="educacion">
+  <!-- TRAYECTORIA -->
+  <section class="sec" id="trayectoria">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div>
-          <span class="kicker">05 // Formación</span>
-          <h2>Educación &amp; Certificaciones</h2>
+        <h2>Trayectoria</h2>
+        <p class="sub">Experiencia profesional y formación técnica.</p>
+      </div>
+      <div class="tabs reveal" role="tablist">
+        <button aria-selected="true" class="tab active" data-tab="tab-trabajo" role="tab" type="button"><span class="material-symbols-outlined">work</span> Trabajo</button>
+        <button aria-selected="false" class="tab" data-tab="tab-educacion" role="tab" type="button"><span class="material-symbols-outlined">school</span> Educación</button>
+      </div>
+
+      <div class="tab-pane open" id="tab-trabajo" role="tabpanel">
+        <div class="jobs">
+          <article class="job reveal">
+            <div class="job-head">
+              <div>
+                <h3>Desarrollador Fullstack &amp; Odoo</h3>
+                <span class="company">Grupo Valcro</span>
+              </div>
+              <span class="dates">Junio 2026 – Septiembre 2026</span>
+            </div>
+            <ul>
+              <li>Diseñé y construí la plataforma multiempresa de inventario y compras (Venezuela/Colombia) con NestJS 11, TypeORM, PostgreSQL y React 19, implementando RBAC, JWT y documentación Swagger/OpenAPI.</li>
+              <li>Refactoricé el módulo de compras hacia Clean Architecture con DTOs y validadores estrictos (class-validator), garantizando integridad en cálculo de totales y eliminando duplicidades.</li>
+              <li>Desarrollé un middleware en NestJS con WebSockets (Socket.IO) para el POS de Odoo 14, desacoplando la sincronización de stock y catálogo para eliminar bloqueos de caja en horas pico.</li>
+              <li>Personalicé Odoo 14 y 18: integración del método de pago Cashea y control diario de caja, corrección fiscal del libro de compras y notas de crédito, y extracción modular de reportes X/Z.</li>
+            </ul>
+          </article>
+          <article class="job reveal">
+            <div class="job-head">
+              <div>
+                <h3>Líder de Desarrollo RPA &amp; Automatización</h3>
+                <span class="company">Sempiterno Group</span>
+              </div>
+              <span class="dates">Abril 2025 – Mayo 2026</span>
+            </div>
+            <ul>
+              <li>Lideré el desarrollo de motores ETL en Python capaces de procesar +300.000 registros mediante streaming/chunking (Polars/FastExcel), mitigando desbordamientos de memoria en producción.</li>
+              <li>Construí 'pyaconsys' y 'concar_sql_wrapper', paquetes Python internos que interactúan programáticamente con sistemas contables cerrados de escritorio vía uiautomation, pywinauto y OCR.</li>
+              <li>Automaticé la conciliación bancaria multimoneda implementando normalización de glosas con coincidencia difusa (fuzzy matching) y notificaciones automáticas del estado de ejecución.</li>
+              <li>Estandaricé las prácticas del equipo mediante tipado estricto con mypy, empaquetado y dependencias con PDM, y suites de pruebas unitarias automatizadas con pytest.</li>
+            </ul>
+          </article>
+          <article class="job reveal">
+            <div class="job-head">
+              <div>
+                <h3>Especialista de Infraestructura y Soporte TI</h3>
+                <span class="company">Ceproalarm</span>
+              </div>
+              <span class="dates">Septiembre 2023 – Mayo 2025</span>
+            </div>
+            <ul>
+              <li>Ejecuté la virtualización de servidores físicos con Proxmox VE, optimizando el rendimiento, la redundancia y el consumo de recursos de los servicios internos.</li>
+              <li>Administré servidores Linux (Ubuntu Server), esquemas de redes y respaldos automáticos, asegurando la continuidad operativa y soporte a plataformas de rastreo GPS.</li>
+            </ul>
+          </article>
         </div>
-        <p>Formación universitaria y especializaciones técnicas oficiales.</p>
       </div>
-      <div class="grid grid-3">
-        <article class="card edu reveal">
-          <span class="badge">9no semestre</span>
-          <h3>Licenciatura en Computación</h3>
-          <p class="where">Universidad de Carabobo</p>
-          <p class="detail">Grado universitario en curso.</p>
-        </article>
-        <article class="card edu reveal">
-          <span class="badge">May 2026</span>
-          <h3>IBM Data Analyst Specialization</h3>
-          <p class="where">IBM / Coursera</p>
-          <p class="detail">Análisis de datos, SQL avanzado y Python.</p>
-        </article>
-        <article class="card edu reveal">
-          <span class="badge">Ene 2026</span>
-          <h3>Docker Profesional &amp; DevOps</h3>
-          <p class="where">Código Facilito</p>
-          <p class="detail">Contenedores y prácticas DevOps.</p>
-        </article>
-        <article class="card edu reveal">
-          <span class="badge">2025</span>
-          <h3>Desarrollo Backend con FastAPI &amp; Odoo v17/v18</h3>
-          <p class="where">Udemy</p>
-          <p class="detail">Especialización para desarrolladores.</p>
-        </article>
-        <article class="card edu reveal">
-          <span class="badge">Idiomas</span>
-          <h3>Español e Inglés</h3>
-          <p class="where">Español: Nativo</p>
-          <p class="detail">Inglés: Lectura técnica y documentación avanzada (Certificado CEVAC - Centro Venezolano Americano de Carabobo).</p>
-        </article>
+
+      <div class="tab-pane" id="tab-educacion" role="tabpanel">
+        <div class="grid grid-3">
+          <article class="card edu reveal">
+            <span class="badge">9no semestre</span>
+            <h3>Licenciatura en Computación</h3>
+            <p class="where">Universidad de Carabobo</p>
+            <p class="detail">Grado universitario en curso.</p>
+          </article>
+          <article class="card edu reveal">
+            <span class="badge">May 2026</span>
+            <h3>IBM Data Analyst Specialization</h3>
+            <p class="where">IBM / Coursera</p>
+            <p class="detail">Análisis de datos, SQL avanzado y Python.</p>
+          </article>
+          <article class="card edu reveal">
+            <span class="badge">Ene 2026</span>
+            <h3>Docker Profesional &amp; DevOps</h3>
+            <p class="where">Código Facilito</p>
+            <p class="detail">Contenedores y prácticas DevOps.</p>
+          </article>
+          <article class="card edu reveal">
+            <span class="badge">2025</span>
+            <h3>Desarrollo Backend con FastAPI &amp; Odoo v17/v18</h3>
+            <p class="where">Udemy</p>
+            <p class="detail">Especialización para desarrolladores.</p>
+          </article>
+          <article class="card edu reveal">
+            <span class="badge">Idiomas</span>
+            <h3>Español e Inglés</h3>
+            <p class="where">Español: Nativo</p>
+            <p class="detail">Inglés: Lectura técnica y documentación avanzada (Certificado CEVAC - Centro Venezolano Americano de Carabobo).</p>
+          </article>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="sec" id="proyectos">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Proyectos de Desarrollo Backend &amp; Software</h2>
+        <p class="sub">Cuatro piezas representativas de arquitectura, datos y automatización.</p>
+      </div>
+      <div class="slider reveal">
+        <div class="slider-track" id="sliderTrack">
+          <article class="card project">
+            <div class="project-top"><span class="stack s-blue">FastAPI · Production Ready</span><span class="material-symbols-outlined">api</span></div>
+            <h3>RESTful Content Engine API</h3>
+            <p>API REST desarrollada con separación por capas (Router, Schema, Repositorio), validación con Pydantic v2 y SQLAlchemy 2.0. Incluye paginación server-side, ordenamiento dinámico, filtrado multi-tag y optimización de consultas con carga ansiosa (joinedload/selectinload) para mitigar el problema N+1, con control transaccional y rollback.</p>
+            <div class="chips"><span class="chip">FastAPI</span><span class="chip">SQLAlchemy 2.0</span><span class="chip">PostgreSQL</span><span class="chip">Pydantic v2</span></div>
+            <div class="links"><a href="https://github.com/merzamac/FastAPIEducation" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">github</span> ver repositorio</a></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><span class="stack s-green">Django 4.2 · MTV</span><span class="material-symbols-outlined">corporate_fare</span></div>
+            <h3>Enterprise Employee Management System</h3>
+            <p>Sistema web modular basado en arquitectura MTV y apps reutilizables con Django 4.2. Implementa Class-Based Views genéricas, formularios con validaciones avanzadas en form_valid, configuración desacoplada por entornos (base/local/production) y gestión relacional de personal por departamentos.</p>
+            <div class="chips"><span class="chip">Django 4.2</span><span class="chip">PostgreSQL</span><span class="chip">CBV</span><span class="chip">MTV</span></div>
+            <div class="links"><a href="https://github.com/merzamac/educationDjango" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined">github</span> ver repositorio</a></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><span class="stack s-yellow">Python · Alto rendimiento</span><span class="material-symbols-outlined">table_view</span></div>
+            <h3>High-Throughput Accounting ETL Engine</h3>
+            <p>Motor ETL de alto rendimiento con procesamiento por streaming/chunking (bloques de 10k a 50k registros), validación de reglas de negocio y unificación de series contables por centro de costos.</p>
+            <div class="chips"><span class="chip">Python</span><span class="chip">Polars</span><span class="chip">PyArrow</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><span class="stack s-red">Python · RPA</span><span class="material-symbols-outlined">desktop_windows</span></div>
+            <h3>Desktop ERP Automation Suite</h3>
+            <p>Librerías Python modulares desarrolladas bajo Clean Architecture para interactuar e inyectar asientos contables en software de escritorio sin APIs nativas, integrando visión computacional y OCR.</p>
+            <div class="chips"><span class="chip">Python</span><span class="chip">uiautomation</span><span class="chip">OCR</span></div>
+          </article>
+        </div>
+        <div class="slider-nav">
+          <button aria-label="Proyecto anterior" class="slider-btn prev" type="button"><span class="material-symbols-outlined">chevron_left</span></button>
+          <button aria-label="Proyecto siguiente" class="slider-btn next" type="button"><span class="material-symbols-outlined">chevron_right</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="wrap cta-in reveal">
+      <div>
+        <h2>¿Tienes un proyecto o una idea?</h2>
+        <p>Cuéntame qué necesitas y lo vemos.</p>
+      </div>
+      <a class="btn btn-white" href="mailto:moisesmerza@gmail.com"><span class="material-symbols-outlined" style="font-size:18px">mail</span> Escríbeme</a>
     </div>
   </section>
 
@@ -283,11 +313,8 @@
   <section class="sec" id="contacto">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div>
-          <span class="kicker">06 // Contacto</span>
-          <h2>Hablemos</h2>
-        </div>
-        <p>Canales directos de contacto.</p>
+        <h2>Hablemos</h2>
+        <p class="sub">Canales directos de contacto.</p>
       </div>
       <div class="contact-grid">
         <a class="ccard reveal" href="mailto:moisesmerza@gmail.com">
@@ -316,7 +343,7 @@
     <span class="brand-dot">© 2026 Moisés Merza · merzamac.github.io</span>
     <nav>
       <a href="#inicio">Inicio</a>
-      <a href="#experiencia">Experiencia</a>
+      <a href="#trayectoria">Trayectoria</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#contacto">Contacto</a>
     </nav>
