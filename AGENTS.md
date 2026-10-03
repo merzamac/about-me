@@ -8,7 +8,6 @@ Sitio estático (HTML/CSS/JS vanilla) — portafolio personal de Moisés Merza, 
 - `source/css/style.css`, `source/js/main.js` — todo el JS vive en un solo IIFE en `main.js`.
 - `source/pdf/Moises_Merza_CV.pdf` — PDF exportado **manualmente por el usuario desde Word** (nunca automatizar con Office COM: la instalación no está licenciada y los scripts se cuelgan).
 - `source/images/me.jpg` — foto de perfil en el home.
-- `PROYECTOS_EDUCATIVOS.md`, `REPORTE_CURRICULUM.md` — material de referencia **sin trackear** a propósito (no commitear ni publicar).
 
 ## Comandos de verificación (no hay lint/test formales)
 
@@ -31,7 +30,7 @@ python -m http.server 8080              # probar en local: http://localhost:8080
 ## Convenciones de contenido (críticas)
 
 - El texto es **literal del CV del usuario**. No inventar ni ampliar claims: prohibido "Senior", "Disponible", "+100%", "sub-50ms", "STABLE", "telemetry", "Redis", "Odoo XML-RPC", "verificable", porcentajes autoevaluados en skills o testimonios inventados.
-- Hechos solo si están en el CV, los `.md` de referencia o evidencia de git.
+- Hechos solo si están en el CV del usuario o evidencia de git.
 - Al reescribir secciones: grep de esas palabras al final de toda edición.
 
 ## Detalles de implementación fáciles de romper
